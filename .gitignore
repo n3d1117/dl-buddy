@@ -1,0 +1,11 @@
+xcuserdata/
+.DS_Store
+*.hmap
+*.ipa
+*.dSYM.zip
+*.dSYM
+Packages/
+Package.pins
+Package.resolved
+.swiftpm
+.build/
