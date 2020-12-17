@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		81A73548258BD2E7006FF70A /* DownloadTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A73547258BD2E6006FF70A /* DownloadTableCell.swift */; };
 		81CBF28B2588ECDD00FB9D2F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81CBF28A2588ECDD00FB9D2F /* AppDelegate.swift */; };
 		81CBF28D2588ECDD00FB9D2F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81CBF28C2588ECDD00FB9D2F /* ViewController.swift */; };
 		81CBF28F2588ECDE00FB9D2F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 81CBF28E2588ECDE00FB9D2F /* Assets.xcassets */; };
@@ -15,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		81A73547258BD2E6006FF70A /* DownloadTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadTableCell.swift; sourceTree = "<group>"; };
 		81CBF2872588ECDD00FB9D2F /* dl-buddy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "dl-buddy.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		81CBF28A2588ECDD00FB9D2F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		81CBF28C2588ECDD00FB9D2F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -55,8 +57,11 @@
 		81CBF2892588ECDD00FB9D2F /* dl-buddy */ = {
 			isa = PBXGroup;
 			children = (
+				81CBF2902588ECDE00FB9D2F /* Main.storyboard */,
+				81F59C37258A180F003DB867 /* Controller */,
+				81F59C36258A180A003DB867 /* View */,
+				81F59C35258A1805003DB867 /* Model */,
 				81CBF2A72588EF1A00FB9D2F /* Stuff */,
-				81CBF28C2588ECDD00FB9D2F /* ViewController.swift */,
 			);
 			path = "dl-buddy";
 			sourceTree = "<group>";
@@ -66,11 +71,33 @@
 			children = (
 				81CBF28A2588ECDD00FB9D2F /* AppDelegate.swift */,
 				81CBF28E2588ECDE00FB9D2F /* Assets.xcassets */,
-				81CBF2902588ECDE00FB9D2F /* Main.storyboard */,
 				81CBF2932588ECDE00FB9D2F /* Info.plist */,
 				81CBF2942588ECDE00FB9D2F /* dl_buddy.entitlements */,
 			);
 			path = Stuff;
+			sourceTree = "<group>";
+		};
+		81F59C35258A1805003DB867 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		81F59C36258A180A003DB867 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				81A73547258BD2E6006FF70A /* DownloadTableCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		81F59C37258A180F003DB867 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				81CBF28C2588ECDD00FB9D2F /* ViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -148,6 +175,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				81A73548258BD2E7006FF70A /* DownloadTableCell.swift in Sources */,
 				81CBF28D2588ECDD00FB9D2F /* ViewController.swift in Sources */,
 				81CBF28B2588ECDD00FB9D2F /* AppDelegate.swift in Sources */,
 			);

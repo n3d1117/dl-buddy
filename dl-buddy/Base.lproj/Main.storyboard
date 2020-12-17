@@ -3,7 +3,6 @@
     <dependencies>
         <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="17701"/>
-        <capability name="Search Toolbar Item" minToolsVersion="12.0" minSystemVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -686,11 +685,12 @@
         <scene sceneID="R2V-B0-nI4">
             <objects>
                 <windowController id="B8D-0N-5wS" sceneMemberID="viewController">
-                    <window key="window" title="dl-buddy" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
+                    <window key="window" title="↓ dl-buddy" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="196" y="240" width="480" height="270"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
+                        <value key="minSize" type="size" width="480" height="270"/>
                         <toolbar key="toolbar" implicitIdentifier="21C798AF-0BCE-46FD-A3A1-1ECA2061CC20" autosavesConfiguration="NO" displayMode="iconAndLabel" sizeMode="regular" id="Hqj-3F-PT7">
                             <allowedToolbarItems>
                                 <toolbarItem implicitItemIdentifier="376C81DA-00B3-44EC-AC8F-BD4509AF824C" label="Add" paletteLabel="Add" tag="-1" image="NSAddTemplate" autovalidates="NO" id="ZJG-sf-CUe">
@@ -699,23 +699,6 @@
                                     <connections>
                                         <action selector="addDownloadButtonTappedWithSender:" target="Oky-zY-oP4" id="KfD-2J-4GH"/>
                                     </connections>
-                                </toolbarItem>
-                                <toolbarItem implicitItemIdentifier="NSToolbarFlexibleSpaceItem" id="lTs-WV-48e"/>
-                                <searchToolbarItem implicitItemIdentifier="7CF473FE-0F8F-435A-A211-9EF8EA4E5088" label="Search" paletteLabel="Search" visibilityPriority="1001" id="2Br-xO-z5c">
-                                    <nil key="toolTip"/>
-                                    <searchField key="view" verticalHuggingPriority="750" textCompletion="NO" id="RTc-K2-Z02">
-                                        <rect key="frame" x="0.0" y="0.0" width="100" height="21"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <searchFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" usesSingleLineMode="YES" bezelStyle="round" sendsSearchStringImmediately="YES" id="DCv-nd-16i">
-                                            <font key="font" usesAppearanceFont="YES"/>
-                                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                        </searchFieldCell>
-                                    </searchField>
-                                </searchToolbarItem>
-                                <toolbarItem implicitItemIdentifier="6BC1040D-CC9B-4B02-A884-4916C67C3F3D" label="Remove" paletteLabel="Remove" tag="-1" image="NSTouchBarDeleteTemplate" id="a7G-ie-xZa">
-                                    <size key="minSize" width="35.5" height="30"/>
-                                    <size key="maxSize" width="35.5" height="30"/>
                                 </toolbarItem>
                             </allowedToolbarItems>
                             <defaultToolbarItems>
@@ -739,9 +722,85 @@
             <objects>
                 <viewController id="XfG-lQ-9wD" customClass="ViewController" customModule="dl_buddy" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="m2S-Jp-Qdl">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                        <rect key="frame" x="0.0" y="0.0" width="480" height="242"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <scrollView autohidesScrollers="YES" horizontalLineScroll="60" horizontalPageScroll="10" verticalLineScroll="60" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XbT-br-iQc">
+                                <rect key="frame" x="0.0" y="0.0" width="480" height="242"/>
+                                <clipView key="contentView" id="QWc-kT-Mid">
+                                    <rect key="frame" x="1" y="1" width="478" height="240"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" alternatingRowBackgroundColors="YES" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowHeight="60" viewBased="YES" id="zgC-nW-DP9">
+                                            <rect key="frame" x="0.0" y="0.0" width="479" height="240"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <size key="intercellSpacing" width="17" height="0.0"/>
+                                            <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
+                                            <tableColumns>
+                                                <tableColumn width="467" minWidth="10" maxWidth="3.4028234663852886e+38" id="dtG-6R-tiK">
+                                                    <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left">
+                                                        <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </tableHeaderCell>
+                                                    <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" title="Text Cell" id="pZw-Fe-dHw">
+                                                        <font key="font" metaFont="system"/>
+                                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                    </textFieldCell>
+                                                    <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
+                                                    <prototypeCellViews>
+                                                        <tableCellView identifier="DownloadTableCell" id="KiX-Ml-NuR" customClass="DownloadTableCell" customModule="dl_buddy" customModuleProvider="target">
+                                                            <rect key="frame" x="8" y="0.0" width="356" height="60"/>
+                                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                            <subviews>
+                                                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="lsm-Ah-GZL">
+                                                                    <rect key="frame" x="160" y="22" width="37" height="16"/>
+                                                                    <textFieldCell key="cell" lineBreakMode="clipping" title="Label" id="tAG-K5-Zyd">
+                                                                        <font key="font" usesAppearanceFont="YES"/>
+                                                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                                    </textFieldCell>
+                                                                </textField>
+                                                            </subviews>
+                                                            <constraints>
+                                                                <constraint firstItem="lsm-Ah-GZL" firstAttribute="centerX" secondItem="KiX-Ml-NuR" secondAttribute="centerX" id="Js7-Em-SwO"/>
+                                                                <constraint firstItem="lsm-Ah-GZL" firstAttribute="centerY" secondItem="KiX-Ml-NuR" secondAttribute="centerY" id="umH-dr-nWO"/>
+                                                            </constraints>
+                                                            <connections>
+                                                                <outlet property="sampleLabel" destination="lsm-Ah-GZL" id="feh-YI-Ncw"/>
+                                                            </connections>
+                                                        </tableCellView>
+                                                    </prototypeCellViews>
+                                                </tableColumn>
+                                            </tableColumns>
+                                            <connections>
+                                                <outlet property="dataSource" destination="XfG-lQ-9wD" id="5EE-c9-feZ"/>
+                                                <outlet property="delegate" destination="XfG-lQ-9wD" id="bnT-rV-Wk8"/>
+                                            </connections>
+                                        </tableView>
+                                    </subviews>
+                                </clipView>
+                                <scroller key="horizontalScroller" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="tmM-QB-csr">
+                                    <rect key="frame" x="1" y="225" width="478" height="16"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                                <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="wzf-OB-MzF">
+                                    <rect key="frame" x="224" y="17" width="15" height="102"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                            </scrollView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="XbT-br-iQc" secondAttribute="bottom" id="JOb-KM-cAs"/>
+                            <constraint firstItem="XbT-br-iQc" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" id="nsQ-D3-889"/>
+                            <constraint firstAttribute="trailing" secondItem="XbT-br-iQc" secondAttribute="trailing" id="o9s-TU-CyO"/>
+                            <constraint firstItem="XbT-br-iQc" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="yHm-L7-FRi"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="zgC-nW-DP9" id="MNL-QN-OhE"/>
+                    </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -750,6 +809,5 @@
     </scenes>
     <resources>
         <image name="NSAddTemplate" width="14" height="13"/>
-        <image name="NSTouchBarDeleteTemplate" width="15" height="17"/>
     </resources>
 </document>
