@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8127AB88258E31B1008373AD /* dl_buddyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8127AB87258E31B1008373AD /* dl_buddyTests.swift */; };
 		814FC036258CEC5700B086E4 /* URLAndDestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814FC035258CEC5700B086E4 /* URLAndDestModel.swift */; };
 		814FC03D258CFC6C00B086E4 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814FC03C258CFC6C00B086E4 /* Extensions.swift */; };
 		81A73548258BD2E7006FF70A /* DownloadTableCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A73547258BD2E6006FF70A /* DownloadTableCellView.swift */; };
@@ -18,7 +19,20 @@
 		81D7A6D2258CD3060061AC1F /* DestinationPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D7A6D0258CD3060061AC1F /* DestinationPickerViewController.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		8127AB8A258E31B1008373AD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 81CBF27F2588ECDD00FB9D2F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 81CBF2862588ECDD00FB9D2F;
+			remoteInfo = "dl-buddy";
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		8127AB85258E31B1008373AD /* dl-buddyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "dl-buddyTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8127AB87258E31B1008373AD /* dl_buddyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dl_buddyTests.swift; sourceTree = "<group>"; };
+		8127AB89258E31B1008373AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		814FC035258CEC5700B086E4 /* URLAndDestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLAndDestModel.swift; sourceTree = "<group>"; };
 		814FC03C258CFC6C00B086E4 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		81A73547258BD2E6006FF70A /* DownloadTableCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadTableCellView.swift; sourceTree = "<group>"; };
@@ -33,6 +47,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		8127AB82258E31B1008373AD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		81CBF2842588ECDD00FB9D2F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -44,10 +65,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8127AB86258E31B1008373AD /* dl-buddyTests */ = {
+			isa = PBXGroup;
+			children = (
+				8127AB87258E31B1008373AD /* dl_buddyTests.swift */,
+				8127AB89258E31B1008373AD /* Info.plist */,
+			);
+			path = "dl-buddyTests";
+			sourceTree = "<group>";
+		};
 		81CBF27E2588ECDD00FB9D2F = {
 			isa = PBXGroup;
 			children = (
 				81CBF2892588ECDD00FB9D2F /* dl-buddy */,
+				8127AB86258E31B1008373AD /* dl-buddyTests */,
 				81CBF2882588ECDD00FB9D2F /* Products */,
 			);
 			sourceTree = "<group>";
@@ -56,6 +87,7 @@
 			isa = PBXGroup;
 			children = (
 				81CBF2872588ECDD00FB9D2F /* dl-buddy.app */,
+				8127AB85258E31B1008373AD /* dl-buddyTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -112,6 +144,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		8127AB84258E31B1008373AD /* dl-buddyTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8127AB8E258E31B1008373AD /* Build configuration list for PBXNativeTarget "dl-buddyTests" */;
+			buildPhases = (
+				8127AB81258E31B1008373AD /* Sources */,
+				8127AB82258E31B1008373AD /* Frameworks */,
+				8127AB83258E31B1008373AD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8127AB8B258E31B1008373AD /* PBXTargetDependency */,
+			);
+			name = "dl-buddyTests";
+			productName = "dl-buddyTests";
+			productReference = 8127AB85258E31B1008373AD /* dl-buddyTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		81CBF2862588ECDD00FB9D2F /* dl-buddy */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 81CBF2972588ECDE00FB9D2F /* Build configuration list for PBXNativeTarget "dl-buddy" */;
@@ -141,6 +191,10 @@
 				LastSwiftUpdateCheck = 1230;
 				LastUpgradeCheck = 1230;
 				TargetAttributes = {
+					8127AB84258E31B1008373AD = {
+						CreatedOnToolsVersion = 12.3;
+						TestTargetID = 81CBF2862588ECDD00FB9D2F;
+					};
 					81CBF2862588ECDD00FB9D2F = {
 						CreatedOnToolsVersion = 12.3;
 					};
@@ -163,11 +217,19 @@
 			projectRoot = "";
 			targets = (
 				81CBF2862588ECDD00FB9D2F /* dl-buddy */,
+				8127AB84258E31B1008373AD /* dl-buddyTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		8127AB83258E31B1008373AD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		81CBF2852588ECDD00FB9D2F /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -180,6 +242,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		8127AB81258E31B1008373AD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8127AB88258E31B1008373AD /* dl_buddyTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		81CBF2832588ECDD00FB9D2F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -195,6 +265,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		8127AB8B258E31B1008373AD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 81CBF2862588ECDD00FB9D2F /* dl-buddy */;
+			targetProxy = 8127AB8A258E31B1008373AD /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		81CBF2902588ECDE00FB9D2F /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -207,6 +285,48 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		8127AB8C258E31B1008373AD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 9Y4562FZWB;
+				INFOPLIST_FILE = "dl-buddyTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.1;
+				PRODUCT_BUNDLE_IDENTIFIER = "it.ned.dl-buddyTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/dl-buddy.app/Contents/MacOS/dl-buddy";
+			};
+			name = Debug;
+		};
+		8127AB8D258E31B1008373AD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 9Y4562FZWB;
+				INFOPLIST_FILE = "dl-buddyTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.1;
+				PRODUCT_BUNDLE_IDENTIFIER = "it.ned.dl-buddyTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/dl-buddy.app/Contents/MacOS/dl-buddy";
+			};
+			name = Release;
+		};
 		81CBF2952588ECDE00FB9D2F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -367,6 +487,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		8127AB8E258E31B1008373AD /* Build configuration list for PBXNativeTarget "dl-buddyTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8127AB8C258E31B1008373AD /* Debug */,
+				8127AB8D258E31B1008373AD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		81CBF2822588ECDD00FB9D2F /* Build configuration list for PBXProject "dl-buddy" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

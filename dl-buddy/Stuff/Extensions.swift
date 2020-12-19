@@ -12,6 +12,7 @@ extension String {
     
     /// Returns `true` if the string is a valid URL
     var isValidURL: Bool {
+        guard URL(string: self) != nil else { return false }
         let types: NSTextCheckingResult.CheckingType = [.link]
         guard let detector = try? NSDataDetector(types: types.rawValue), count > 0 else { return false }
         let options = NSRegularExpression.MatchingOptions(rawValue: 0)
