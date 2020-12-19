@@ -166,6 +166,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 81CBF2972588ECDE00FB9D2F /* Build configuration list for PBXNativeTarget "dl-buddy" */;
 			buildPhases = (
+				8127AB91258E3D62008373AD /* ShellScript */,
 				81CBF2832588ECDD00FB9D2F /* Sources */,
 				81CBF2842588ECDD00FB9D2F /* Frameworks */,
 				81CBF2852588ECDD00FB9D2F /* Resources */,
@@ -240,6 +241,26 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		8127AB91258E3D62008373AD /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint autocorrect && swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		8127AB81258E31B1008373AD /* Sources */ = {

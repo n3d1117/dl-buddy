@@ -8,10 +8,10 @@
 import Foundation
 
 struct URLAndDestModel {
-    
+
     /// The URL of the file to download
     var url: URL
-    
+
     /// The folder where to save to downloaded file
     var destinationFolder: URL
 }

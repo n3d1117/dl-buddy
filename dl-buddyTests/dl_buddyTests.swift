@@ -15,7 +15,7 @@ class URLAndDestinationModelTests: XCTestCase {
         XCTAssertEqual(model.url, URL(string: "https://apple.com/")!)
         XCTAssertEqual(model.destinationFolder, URL(string: "https://apple.com/")!)
     }
-    
+
     func testIsValidURLStringExtension() {
         let realUrl = "https://apple.com/"
         let realUrl2 = "apple.com/"
@@ -24,7 +24,7 @@ class URLAndDestinationModelTests: XCTestCase {
         XCTAssertTrue(realUrl2.isValidURL)
         XCTAssertTrue(realUrl3.isValidURL)
     }
-    
+
     func testIsNotValidURLStringExtension() {
         let fakeUrl1 = ""
         let fakeUrl2 = " "
