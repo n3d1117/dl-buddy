@@ -13,7 +13,6 @@ class MainViewController: NSViewController {
     
     @IBOutlet fileprivate weak var tableView: NSTableView!
     
-    
     // MARK: - VC Lifecycle Methods
     
     override func viewDidLoad() {
@@ -23,25 +22,26 @@ class MainViewController: NSViewController {
     
     // MARK: - Helpers
     
-    fileprivate func newDownloadRequested(with model: DownloadURLAndDestination) {
-        print(model.destination)
-        print(model.fileUrl)
+    fileprivate func newDownloadRequested(with model: URLAndDestModel) {
+        print(model.destinationFolder)
+        print(model.url)
     }
     
     // MARK: - IBAction Methods
     
-    @IBAction fileprivate func addDownloadButtonTapped(sender: NSToolbarItem) {
+    @IBAction fileprivate func addButtonTapped(sender: NSToolbarItem) {
         
         /// Prepare a `URLAndDestinationViewController` modal sheet
         let sceneIdentifier = NSStoryboard.SceneIdentifier(stringLiteral: "URLAndDestinationViewController")
         guard let windowController = storyboard?.instantiateController(withIdentifier: sceneIdentifier) as? NSWindowController,
-              let resizeWindow = windowController.window,
-              let destinationViewController = windowController.contentViewController as? URLAndDestinationViewController else { return }
+              let sheetWindow = windowController.window,
+              let destinationVC = windowController.contentViewController as? DestinationPickerViewController
+        else { return }
         
         /// Present sheet and handle completion
-        view.window?.beginSheet(resizeWindow, completionHandler: { [weak self] response in
-            if response == NSApplication.ModalResponse.OK {
-                guard let model = destinationViewController.urlAndDestinationModel else { return }
+        view.window?.beginSheet(sheetWindow, completionHandler: { [weak self] response in
+            if response == .OK {
+                guard let model = destinationVC.urlAndDestinationModel else { return }
                 self?.newDownloadRequested(with: model)
             }
         })

@@ -15,10 +15,7 @@ extension String {
         let types: NSTextCheckingResult.CheckingType = [.link]
         guard let detector = try? NSDataDetector(types: types.rawValue), count > 0 else { return false }
         let options = NSRegularExpression.MatchingOptions(rawValue: 0)
-        if detector.numberOfMatches(in: self, options: options, range: NSMakeRange(0, count)) > 0 {
-            return true
-        }
-        return false
+        return detector.numberOfMatches(in: self, options: options, range: NSMakeRange(0, count)) > 0
     }
     
 }

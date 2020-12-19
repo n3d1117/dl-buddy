@@ -7,7 +7,7 @@
 
 import Cocoa
 
-class URLAndDestinationViewController: NSViewController {
+class DestinationPickerViewController: NSViewController {
     
     // MARK: - IBOutlet Properties
     
@@ -17,7 +17,7 @@ class URLAndDestinationViewController: NSViewController {
     
     // MARK: - Properties
     
-    var urlAndDestinationModel: DownloadURLAndDestination?
+    var urlAndDestinationModel: URLAndDestModel?
     
     // MARK: - VC Lifecycle Methods
     
@@ -41,7 +41,7 @@ class URLAndDestinationViewController: NSViewController {
         destinationPathControl.url = initialDestinationUrl
         
         /// Instantiate an empty model
-        urlAndDestinationModel = DownloadURLAndDestination(fileUrl: .empty, destination: initialDestinationUrl)
+        urlAndDestinationModel = URLAndDestModel(url: .empty, destinationFolder: initialDestinationUrl)
     }
     
     // MARK: - IBAction Methods
@@ -57,7 +57,7 @@ class URLAndDestinationViewController: NSViewController {
     // MARK: - Helpers
     
     fileprivate func endSheet(_ returnCode: NSApplication.ModalResponse) {
-        guard let window = self.view.window, let parent = window.sheetParent else { return }
+        guard let window = view.window, let parent = window.sheetParent else { return }
         parent.endSheet(window, returnCode: returnCode)
     }
     
@@ -74,11 +74,11 @@ class URLAndDestinationViewController: NSViewController {
     }
     
     fileprivate func updateModelFileUrl(_ fileUrl: URL) {
-        urlAndDestinationModel?.fileUrl = fileUrl
+        urlAndDestinationModel?.url = fileUrl
     }
     
     fileprivate func updateModelDestination(_ destination: URL) {
-        urlAndDestinationModel?.destination = destination
+        urlAndDestinationModel?.destinationFolder = destination
     }
     
     fileprivate func handleUrlInputTextChanged(value: String) {
@@ -107,7 +107,7 @@ class URLAndDestinationViewController: NSViewController {
 
 // MARK: - NSTextFieldDelegate conformance
 
-extension URLAndDestinationViewController: NSTextFieldDelegate {
+extension DestinationPickerViewController: NSTextFieldDelegate {
     
     /// Called whenever text changes inside the textField
     func controlTextDidChange(_ obj: Notification) {
@@ -119,13 +119,13 @@ extension URLAndDestinationViewController: NSTextFieldDelegate {
 
 // MARK: - NSPathControlDelegate conformance
 
-extension URLAndDestinationViewController: NSPathControlDelegate {
+extension DestinationPickerViewController: NSPathControlDelegate {
     
-    /// Called whenever a new folder is selected, either from the dropdown or the `Choose... ` panel
+    /// Called whenever a new folder is selected, either from the dropdown or the `Choose...` panel
     @IBAction func pathItemSelected(sender: NSPathControl) {
         guard let newItem = sender.clickedPathItem else { return }
         
-        /// For some reason, the path gets updated correctly when using the `Choose... ` panel, but not when selecting a folder from the dropdown;
+        /// For some reason, the path gets updated correctly when using the `Choose...` panel, but not when selecting a folder from the dropdown;
         /// So, in case a folder was selected from the dropdown, we need to update the item manually.
         /// Note that `sender.url` and `newItem.url` may differ due to a trailing slash, so we standardize them before checking their equality
         if newItem.url?.standardizedFileURL != sender.url?.standardizedFileURL {

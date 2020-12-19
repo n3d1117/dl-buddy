@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		814FC036258CEC5700B086E4 /* DownloadURLAndDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814FC035258CEC5700B086E4 /* DownloadURLAndDestination.swift */; };
+		814FC036258CEC5700B086E4 /* URLAndDestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814FC035258CEC5700B086E4 /* URLAndDestModel.swift */; };
 		814FC03D258CFC6C00B086E4 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814FC03C258CFC6C00B086E4 /* Extensions.swift */; };
 		81A73548258BD2E7006FF70A /* DownloadTableCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A73547258BD2E6006FF70A /* DownloadTableCellView.swift */; };
 		81CBF28B2588ECDD00FB9D2F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81CBF28A2588ECDD00FB9D2F /* AppDelegate.swift */; };
@@ -15,11 +15,11 @@
 		81CBF28F2588ECDE00FB9D2F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 81CBF28E2588ECDE00FB9D2F /* Assets.xcassets */; };
 		81CBF2922588ECDE00FB9D2F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81CBF2902588ECDE00FB9D2F /* Main.storyboard */; };
 		81CBF2A12588EEC300FB9D2F /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 81CBF2A02588EEC300FB9D2F /* Alamofire */; };
-		81D7A6D2258CD3060061AC1F /* URLAndDestinationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D7A6D0258CD3060061AC1F /* URLAndDestinationViewController.swift */; };
+		81D7A6D2258CD3060061AC1F /* DestinationPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D7A6D0258CD3060061AC1F /* DestinationPickerViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		814FC035258CEC5700B086E4 /* DownloadURLAndDestination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadURLAndDestination.swift; sourceTree = "<group>"; };
+		814FC035258CEC5700B086E4 /* URLAndDestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLAndDestModel.swift; sourceTree = "<group>"; };
 		814FC03C258CFC6C00B086E4 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		81A73547258BD2E6006FF70A /* DownloadTableCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadTableCellView.swift; sourceTree = "<group>"; };
 		81CBF2872588ECDD00FB9D2F /* dl-buddy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "dl-buddy.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -29,7 +29,7 @@
 		81CBF2912588ECDE00FB9D2F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		81CBF2932588ECDE00FB9D2F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		81CBF2942588ECDE00FB9D2F /* dl_buddy.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = dl_buddy.entitlements; sourceTree = "<group>"; };
-		81D7A6D0258CD3060061AC1F /* URLAndDestinationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLAndDestinationViewController.swift; sourceTree = "<group>"; };
+		81D7A6D0258CD3060061AC1F /* DestinationPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationPickerViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,7 +87,7 @@
 		81F59C35258A1805003DB867 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				814FC035258CEC5700B086E4 /* DownloadURLAndDestination.swift */,
+				814FC035258CEC5700B086E4 /* URLAndDestModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -104,7 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				81CBF28C2588ECDD00FB9D2F /* MainViewController.swift */,
-				81D7A6D0258CD3060061AC1F /* URLAndDestinationViewController.swift */,
+				81D7A6D0258CD3060061AC1F /* DestinationPickerViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -188,8 +188,8 @@
 				814FC03D258CFC6C00B086E4 /* Extensions.swift in Sources */,
 				81CBF28D2588ECDD00FB9D2F /* MainViewController.swift in Sources */,
 				81CBF28B2588ECDD00FB9D2F /* AppDelegate.swift in Sources */,
-				81D7A6D2258CD3060061AC1F /* URLAndDestinationViewController.swift in Sources */,
-				814FC036258CEC5700B086E4 /* DownloadURLAndDestination.swift in Sources */,
+				81D7A6D2258CD3060061AC1F /* DestinationPickerViewController.swift in Sources */,
+				814FC036258CEC5700B086E4 /* URLAndDestModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

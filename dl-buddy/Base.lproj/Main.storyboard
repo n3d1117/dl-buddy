@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
-        <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="17701"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -695,7 +694,7 @@
                             <allowedToolbarItems>
                                 <toolbarItem implicitItemIdentifier="376C81DA-00B3-44EC-AC8F-BD4509AF824C" label="Add" paletteLabel="Add" tag="-1" image="NSAddTemplate" sizingBehavior="auto" autovalidates="NO" id="ZJG-sf-CUe">
                                     <connections>
-                                        <action selector="addDownloadButtonTappedWithSender:" target="Oky-zY-oP4" id="AmU-gR-vkp"/>
+                                        <action selector="addButtonTappedWithSender:" target="Oky-zY-oP4" id="AmU-gR-vkp"/>
                                     </connections>
                                 </toolbarItem>
                             </allowedToolbarItems>
@@ -715,10 +714,10 @@
             </objects>
             <point key="canvasLocation" x="75" y="250"/>
         </scene>
-        <!--URL And Destination View Controller-->
+        <!--Destination Picker View Controller-->
         <scene sceneID="E1H-C7-IEm">
             <objects>
-                <viewController id="rgQ-u9-Rmr" customClass="URLAndDestinationViewController" customModule="dl_buddy" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="rgQ-u9-Rmr" customClass="DestinationPickerViewController" customModule="dl_buddy" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="OgC-bu-iRU">
                         <rect key="frame" x="0.0" y="0.0" width="350" height="170"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -863,7 +862,7 @@ Gw
                                 <rect key="frame" x="0.0" y="0.0" width="482" height="242"/>
                                 <clipView key="contentView" id="QWc-kT-Mid">
                                     <rect key="frame" x="1" y="1" width="480" height="240"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" alternatingRowBackgroundColors="YES" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowHeight="60" viewBased="YES" id="zgC-nW-DP9">
                                             <rect key="frame" x="0.0" y="0.0" width="480" height="240"/>
@@ -885,7 +884,7 @@ Gw
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView identifier="DownloadTableCell" id="KiX-Ml-NuR" customClass="DownloadTableCellView" customModule="dl_buddy" customModuleProvider="target">
-                                                            <rect key="frame" x="8" y="0.0" width="463" height="60"/>
+                                                            <rect key="frame" x="18" y="0.0" width="463" height="60"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="lsm-Ah-GZL">
@@ -916,7 +915,7 @@ Gw
                                     </subviews>
                                 </clipView>
                                 <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="tmM-QB-csr">
-                                    <rect key="frame" x="1" y="225" width="474" height="16"/>
+                                    <rect key="frame" x="1" y="225" width="480" height="16"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="wzf-OB-MzF">
