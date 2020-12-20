@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
+        <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="17701"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -739,11 +740,11 @@
                                 </textFieldCell>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="jEm-yp-5dN">
-                                <rect key="frame" x="65" y="141" width="220" height="15"/>
+                                <rect key="frame" x="67" y="141" width="216" height="15"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="15" id="Mo2-CJ-3Gl"/>
                                 </constraints>
-                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Insert a URL and select a destination:" usesSingleLineMode="YES" id="85M-8V-nnk">
+                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Input a URL and select a destination:" usesSingleLineMode="YES" id="85M-8V-nnk">
                                     <font key="font" textStyle="callout" name=".SFNS-Regular"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -855,14 +856,14 @@ Gw
             <objects>
                 <viewController id="XfG-lQ-9wD" customClass="MainViewController" customModule="dl_buddy" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="m2S-Jp-Qdl">
-                        <rect key="frame" x="0.0" y="0.0" width="482" height="242"/>
+                        <rect key="frame" x="0.0" y="0.0" width="400" height="242"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <scrollView autohidesScrollers="YES" horizontalLineScroll="60" horizontalPageScroll="10" verticalLineScroll="60" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XbT-br-iQc">
-                                <rect key="frame" x="0.0" y="0.0" width="482" height="242"/>
+                                <rect key="frame" x="0.0" y="0.0" width="400" height="242"/>
                                 <clipView key="contentView" id="QWc-kT-Mid">
-                                    <rect key="frame" x="1" y="1" width="480" height="240"/>
-                                    <autoresizingMask key="autoresizingMask"/>
+                                    <rect key="frame" x="1" y="1" width="398" height="240"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" alternatingRowBackgroundColors="YES" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowHeight="60" viewBased="YES" id="zgC-nW-DP9">
                                             <rect key="frame" x="0.0" y="0.0" width="480" height="240"/>
@@ -884,11 +885,11 @@ Gw
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView identifier="DownloadTableCell" id="KiX-Ml-NuR" customClass="DownloadTableCellView" customModule="dl_buddy" customModuleProvider="target">
-                                                            <rect key="frame" x="18" y="0.0" width="463" height="60"/>
+                                                            <rect key="frame" x="8" y="0.0" width="400" height="60"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="lsm-Ah-GZL">
-                                                                    <rect key="frame" x="213" y="22" width="37" height="16"/>
+                                                                    <rect key="frame" x="182" y="22" width="37" height="16"/>
                                                                     <textFieldCell key="cell" lineBreakMode="clipping" title="Label" id="tAG-K5-Zyd">
                                                                         <font key="font" usesAppearanceFont="YES"/>
                                                                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -897,8 +898,8 @@ Gw
                                                                 </textField>
                                                             </subviews>
                                                             <constraints>
-                                                                <constraint firstItem="lsm-Ah-GZL" firstAttribute="centerX" secondItem="KiX-Ml-NuR" secondAttribute="centerX" id="Js7-Em-SwO"/>
-                                                                <constraint firstItem="lsm-Ah-GZL" firstAttribute="centerY" secondItem="KiX-Ml-NuR" secondAttribute="centerY" id="umH-dr-nWO"/>
+                                                                <constraint firstItem="lsm-Ah-GZL" firstAttribute="centerX" secondItem="KiX-Ml-NuR" secondAttribute="centerX" id="5oN-86-HDj"/>
+                                                                <constraint firstItem="lsm-Ah-GZL" firstAttribute="centerY" secondItem="KiX-Ml-NuR" secondAttribute="centerY" id="emR-MB-38A"/>
                                                             </constraints>
                                                             <connections>
                                                                 <outlet property="sampleLabel" destination="lsm-Ah-GZL" id="feh-YI-Ncw"/>
@@ -914,8 +915,8 @@ Gw
                                         </tableView>
                                     </subviews>
                                 </clipView>
-                                <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="tmM-QB-csr">
-                                    <rect key="frame" x="1" y="225" width="480" height="16"/>
+                                <scroller key="horizontalScroller" wantsLayer="YES" verticalHuggingPriority="750" doubleValue="0.097560975609756101" horizontal="YES" id="tmM-QB-csr">
+                                    <rect key="frame" x="1" y="225" width="398" height="16"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="wzf-OB-MzF">
@@ -925,10 +926,10 @@ Gw
                             </scrollView>
                         </subviews>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="XbT-br-iQc" secondAttribute="bottom" id="JOb-KM-cAs"/>
-                            <constraint firstItem="XbT-br-iQc" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" id="nsQ-D3-889"/>
-                            <constraint firstAttribute="trailing" secondItem="XbT-br-iQc" secondAttribute="trailing" id="o9s-TU-CyO"/>
-                            <constraint firstItem="XbT-br-iQc" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="yHm-L7-FRi"/>
+                            <constraint firstItem="XbT-br-iQc" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="LIg-jH-Lbz"/>
+                            <constraint firstItem="XbT-br-iQc" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" id="SCl-bt-0Gc"/>
+                            <constraint firstAttribute="trailing" secondItem="XbT-br-iQc" secondAttribute="trailing" id="XPO-A6-qE3"/>
+                            <constraint firstAttribute="bottom" secondItem="XbT-br-iQc" secondAttribute="bottom" id="m39-2o-JUd"/>
                         </constraints>
                     </view>
                     <connections>
@@ -937,7 +938,7 @@ Gw
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="687"/>
+            <point key="canvasLocation" x="75.5" y="687"/>
         </scene>
     </scenes>
     <resources>
