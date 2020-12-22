@@ -27,6 +27,17 @@ extension URL {
         return URL(string: "https://apple.com/")!
     }
 
+    var fileSize: Int64? {
+        guard FileManager.default.fileExists(at: self) else { return nil }
+        do {
+            let values = try resourceValues(forKeys: [.fileSizeKey])
+            guard let fileSize = values.fileSize else { return nil }
+            return Int64(fileSize)
+        } catch {
+            return nil
+        }
+    }
+
 }
 
 extension Int64 {
@@ -54,6 +65,45 @@ extension Array where Element: Hashable {
         let thisSet = Set(self)
         let otherSet = Set(other)
         return Array(thisSet.symmetricDifference(otherSet))
+    }
+
+}
+
+extension FileManager {
+
+    func fileExists(at url: URL) -> Bool {
+        return fileExists(atPath: url.path)
+    }
+
+    func directoryExists(at url: URL) -> Bool {
+        var isDirectory: ObjCBool = false
+        let exists = fileExists(atPath: url.path, isDirectory: &isDirectory)
+        return exists && isDirectory.boolValue
+    }
+
+}
+
+extension Date {
+
+    fileprivate var customFormatter: DateFormatter {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .long
+        formatter.timeStyle = .short
+        formatter.doesRelativeDateFormatting = true
+        return formatter
+    }
+
+    fileprivate var relativeDateFormatter: RelativeDateTimeFormatter {
+        let formatter = RelativeDateTimeFormatter()
+        return formatter
+    }
+
+    var humanReadable: String {
+        return customFormatter.string(from: self).lowercased()
+    }
+
+    func localizedInterval(from: Date) -> String {
+        return relativeDateFormatter.localizedString(for: self, relativeTo: from)
     }
 
 }

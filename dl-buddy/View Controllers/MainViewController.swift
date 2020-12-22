@@ -91,8 +91,13 @@ class MainViewController: NSViewController {
         guard let row = clickedRow(sender) else { return }
         let model = downloadManager.downloads[row]
         let destinationFolder = model.destinationUrl
+        guard FileManager.default.directoryExists(at: destinationFolder) else { return }
         guard let filename = model.filename else { return }
         let finalUrl = destinationFolder.appendingPathComponent(filename)
+        guard FileManager.default.fileExists(at: finalUrl) else {
+            NSWorkspace.shared.activateFileViewerSelecting([destinationFolder])
+            return
+        }
         NSWorkspace.shared.activateFileViewerSelecting([finalUrl])
     }
 

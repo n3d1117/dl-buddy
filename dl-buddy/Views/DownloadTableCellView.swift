@@ -37,7 +37,6 @@ class DownloadTableCellView: NSTableCellView {
     override func mouseEntered(with event: NSEvent) {
         if let item = event.trackingArea?.userInfo?["btn"] as? MenuItem {
             isInMouseoverMode = true
-            secondaryLabel.textColor = NSColor.secondaryLabelColor
 
             switch item {
             case .remove:
@@ -69,15 +68,13 @@ class DownloadTableCellView: NSTableCellView {
         switch model.state {
         case .unknown:
             isInMouseoverMode = false
-            secondaryLabel.stringValue = ""
-            secondaryLabel.textColor = NSColor.secondaryLabelColor
+            secondaryLabel.stringValue = "Loading..."
             progressView.doubleValue = 0
             setActionButtonsEnabled([])
 
         case .completed:
             if !isInMouseoverMode {
-                secondaryLabel.stringValue = "Download completed"
-                secondaryLabel.textColor = NSColor.systemGreen.withAlphaComponent(0.8)
+                secondaryLabel.stringValue = constructDownloadCompletedString()
             }
             progressView.doubleValue = 1
             setActionButtonsEnabled([.showInFinder, .remove])
@@ -85,21 +82,18 @@ class DownloadTableCellView: NSTableCellView {
         case .failed(let error):
             if !isInMouseoverMode {
                 secondaryLabel.stringValue = error
-                secondaryLabel.textColor = NSColor.systemRed.withAlphaComponent(0.8)
             }
             setActionButtonsEnabled([.remove])
 
         case .paused:
             if !isInMouseoverMode {
                 secondaryLabel.stringValue = "Download paused"
-                secondaryLabel.textColor = NSColor.secondaryLabelColor
             }
             setActionButtonsEnabled([.resume, .cancel])
 
         case .downloading(let progress):
             if !isInMouseoverMode {
                 secondaryLabel.stringValue = progress.asString
-                secondaryLabel.textColor = NSColor.secondaryLabelColor
             }
             progressView.doubleValue = progress.fractionCompleted
             setActionButtonsEnabled([.pause, .cancel])
@@ -126,6 +120,25 @@ class DownloadTableCellView: NSTableCellView {
         let options: NSTrackingArea.Options = [.mouseEnteredAndExited, .activeAlways]
         let userInfo: [String: MenuItem] = ["btn": item]
         return NSTrackingArea(rect: rect, options: options, owner: self, userInfo: userInfo)
+    }
+
+    fileprivate func getFileLocalUrl() -> URL? {
+        let destinationFolder = model.destinationUrl
+        guard let filename = model.filename else { return nil }
+        return destinationFolder.appendingPathComponent(filename)
+    }
+
+    fileprivate func constructDownloadCompletedString() -> String {
+        var finalString = "Download completed"
+
+        if let startDate = model.startDate, let endDate = model.endDate {
+            finalString += " \(endDate.humanReadable) \(endDate.localizedInterval(from: startDate))"
+        }
+
+        if let size = getFileLocalUrl()?.fileSize?.humanReadable {
+            finalString += " — \(size)"
+        }
+        return finalString
     }
 
 }

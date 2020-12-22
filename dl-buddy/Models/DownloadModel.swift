@@ -22,6 +22,8 @@ struct DownloadModel {
     var fileUrl: URL
     var destinationUrl: URL
     var filename: String?
+    var startDate: Date?
+    var endDate: Date?
     var state: State = .unknown
     var request: DownloadRequest?
 }

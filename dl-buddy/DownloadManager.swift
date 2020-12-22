@@ -48,8 +48,9 @@ class DownloadManager {
 
                 if let index = self.index(for: model.id) {
 
-                    // Update model with request
+                    // Update model with request and start date
                     self.downloads[index].request = request
+                    self.downloads[index].startDate = Date()
 
                     // Notify delegate that download started
                     self.delegate?.downloadStarted(for: self.downloads[index], at: index)
@@ -90,6 +91,7 @@ class DownloadManager {
             guard let index = self.index(for: modelId) else { return }
             switch response.result {
             case .success:
+                self.downloads[index].endDate = Date()
                 self.downloads[index].state = .completed
                 self.delegate?.downloadFinishedSuccess(for: self.downloads[index], at: index)
             case .failure(let error):
