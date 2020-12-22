@@ -10,7 +10,7 @@
         <scene sceneID="JPo-4y-FX3">
             <objects>
                 <application id="hnw-xV-0zn" sceneMemberID="viewController">
-                    <menu key="mainMenu" title="Main Menu" systemMenu="main" id="AYu-sK-qS6">
+                    <menu key="mainMenu" title="Main Menu" systemMenu="main" autoenablesItems="NO" id="AYu-sK-qS6">
                         <items>
                             <menuItem title="dl-buddy" id="1Xt-HY-uBw">
                                 <modifierMask key="keyEquivalentModifierMask"/>
@@ -60,60 +60,14 @@
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <menu key="submenu" title="File" id="bib-Uj-vzu">
                                     <items>
-                                        <menuItem title="New" keyEquivalent="n" id="Was-JA-tGl">
+                                        <menuItem title="Add Download" keyEquivalent="n" id="Was-JA-tGl">
                                             <connections>
-                                                <action selector="newDocument:" target="Ady-hI-5gd" id="4Si-XN-c54"/>
+                                                <action selector="addButtonTappedWithSender:" target="Ady-hI-5gd" id="9On-mw-qxq"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="Open…" keyEquivalent="o" id="IAo-SY-fd9">
-                                            <connections>
-                                                <action selector="openDocument:" target="Ady-hI-5gd" id="bVn-NM-KNZ"/>
-                                            </connections>
-                                        </menuItem>
-                                        <menuItem title="Open Recent" id="tXI-mr-wws">
-                                            <modifierMask key="keyEquivalentModifierMask"/>
-                                            <menu key="submenu" title="Open Recent" systemMenu="recentDocuments" id="oas-Oc-fiZ">
-                                                <items>
-                                                    <menuItem title="Clear Menu" id="vNY-rz-j42">
-                                                        <modifierMask key="keyEquivalentModifierMask"/>
-                                                        <connections>
-                                                            <action selector="clearRecentDocuments:" target="Ady-hI-5gd" id="Daa-9d-B3U"/>
-                                                        </connections>
-                                                    </menuItem>
-                                                </items>
-                                            </menu>
-                                        </menuItem>
-                                        <menuItem isSeparatorItem="YES" id="m54-Is-iLE"/>
                                         <menuItem title="Close" keyEquivalent="w" id="DVo-aG-piG">
                                             <connections>
                                                 <action selector="performClose:" target="Ady-hI-5gd" id="HmO-Ls-i7Q"/>
-                                            </connections>
-                                        </menuItem>
-                                        <menuItem title="Save…" keyEquivalent="s" id="pxx-59-PXV">
-                                            <connections>
-                                                <action selector="saveDocument:" target="Ady-hI-5gd" id="teZ-XB-qJY"/>
-                                            </connections>
-                                        </menuItem>
-                                        <menuItem title="Save As…" keyEquivalent="S" id="Bw7-FT-i3A">
-                                            <connections>
-                                                <action selector="saveDocumentAs:" target="Ady-hI-5gd" id="mDf-zr-I0C"/>
-                                            </connections>
-                                        </menuItem>
-                                        <menuItem title="Revert to Saved" keyEquivalent="r" id="KaW-ft-85H">
-                                            <connections>
-                                                <action selector="revertDocumentToSaved:" target="Ady-hI-5gd" id="iJ3-Pv-kwq"/>
-                                            </connections>
-                                        </menuItem>
-                                        <menuItem isSeparatorItem="YES" id="aJh-i4-bef"/>
-                                        <menuItem title="Page Setup…" keyEquivalent="P" id="qIS-W8-SiK">
-                                            <modifierMask key="keyEquivalentModifierMask" shift="YES" command="YES"/>
-                                            <connections>
-                                                <action selector="runPageLayout:" target="Ady-hI-5gd" id="Din-rz-gC5"/>
-                                            </connections>
-                                        </menuItem>
-                                        <menuItem title="Print…" keyEquivalent="p" id="aTl-1u-JFS">
-                                            <connections>
-                                                <action selector="print:" target="Ady-hI-5gd" id="qaZ-4w-aoO"/>
                                             </connections>
                                         </menuItem>
                                     </items>
@@ -180,11 +134,6 @@
                                                         <modifierMask key="keyEquivalentModifierMask" option="YES" command="YES"/>
                                                         <connections>
                                                             <action selector="performFindPanelAction:" target="Ady-hI-5gd" id="WD3-Gg-5AJ"/>
-                                                        </connections>
-                                                    </menuItem>
-                                                    <menuItem title="Find Next" tag="2" keyEquivalent="g" id="q09-fT-Sye">
-                                                        <connections>
-                                                            <action selector="performFindPanelAction:" target="Ady-hI-5gd" id="NDo-RZ-v9R"/>
                                                         </connections>
                                                     </menuItem>
                                                     <menuItem title="Find Previous" tag="3" keyEquivalent="G" id="OwM-mh-QMV">
@@ -359,11 +308,6 @@
                                                     <menuItem title="Italic" tag="1" keyEquivalent="i" id="Vjx-xi-njq">
                                                         <connections>
                                                             <action selector="addFontTrait:" target="YLy-65-1bz" id="IHV-OB-c03"/>
-                                                        </connections>
-                                                    </menuItem>
-                                                    <menuItem title="Underline" keyEquivalent="u" id="WRG-CD-K1S">
-                                                        <connections>
-                                                            <action selector="underline:" target="Ady-hI-5gd" id="FYS-2b-JAY"/>
                                                         </connections>
                                                     </menuItem>
                                                     <menuItem isSeparatorItem="YES" id="5gT-KC-WSO"/>
@@ -632,6 +576,43 @@
                                     </items>
                                 </menu>
                             </menuItem>
+                            <menuItem title="Downloads" id="uo5-Gr-Bqe">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <menu key="submenu" title="Downloads" autoenablesItems="NO" id="py8-33-92k">
+                                    <items>
+                                        <menuItem title="Pause" keyEquivalent="p" allowsKeyEquivalentWhenHidden="YES" id="7gR-5X-sth">
+                                            <connections>
+                                                <action selector="pauseDownloadClicked:" target="Ady-hI-5gd" id="yu0-Dy-Zgq"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Resume" keyEquivalent="r" allowsKeyEquivalentWhenHidden="YES" id="wra-oH-71N">
+                                            <connections>
+                                                <action selector="resumeDownloadClicked:" target="Ady-hI-5gd" id="2Ar-rw-M5b"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Cancel" keyEquivalent="u" allowsKeyEquivalentWhenHidden="YES" id="eG9-p5-FFw">
+                                            <connections>
+                                                <action selector="cancelDownloadClicked:" target="Ady-hI-5gd" id="dem-VR-3wW"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem isSeparatorItem="YES" id="okj-Xd-ChM"/>
+                                        <menuItem title="Remove" allowsKeyEquivalentWhenHidden="YES" id="SJL-0v-vwt">
+                                            <string key="keyEquivalent" base64-UTF8="YES">
+CA
+</string>
+                                            <connections>
+                                                <action selector="removeDownloadClicked:" target="Ady-hI-5gd" id="UIm-fL-5jP"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem isSeparatorItem="YES" id="tHs-QU-m0K"/>
+                                        <menuItem title="Show in Finder" keyEquivalent="g" allowsKeyEquivalentWhenHidden="YES" id="Wa0-ra-9rv">
+                                            <connections>
+                                                <action selector="showInFinderClicked:" target="Ady-hI-5gd" id="p7S-1j-3Wh"/>
+                                            </connections>
+                                        </menuItem>
+                                    </items>
+                                </menu>
+                            </menuItem>
                             <menuItem title="Window" id="aUF-d1-5bR">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <menu key="submenu" title="Window" systemMenu="window" id="Td7-aD-5lo">
@@ -688,9 +669,9 @@
                     <window key="window" title="↓ dl-buddy" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-                        <rect key="contentRect" x="196" y="240" width="480" height="270"/>
+                        <rect key="contentRect" x="196" y="240" width="500" height="270"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
-                        <value key="minSize" type="size" width="480" height="270"/>
+                        <value key="minSize" type="size" width="500" height="270"/>
                         <toolbar key="toolbar" implicitIdentifier="21C798AF-0BCE-46FD-A3A1-1ECA2061CC20" allowsUserCustomization="NO" displayMode="iconAndLabel" sizeMode="regular" id="Hqj-3F-PT7">
                             <allowedToolbarItems>
                                 <toolbarItem implicitItemIdentifier="376C81DA-00B3-44EC-AC8F-BD4509AF824C" label="Add" paletteLabel="Add" tag="-1" image="NSAddTemplate" sizingBehavior="auto" autovalidates="NO" id="ZJG-sf-CUe">
@@ -855,24 +836,24 @@ Gw
         <scene sceneID="hIz-AP-VOD">
             <objects>
                 <viewController id="XfG-lQ-9wD" customClass="MainViewController" customModule="dl_buddy" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" id="m2S-Jp-Qdl">
-                        <rect key="frame" x="0.0" y="0.0" width="400" height="242"/>
+                    <view key="view" misplaced="YES" id="m2S-Jp-Qdl">
+                        <rect key="frame" x="0.0" y="0.0" width="460" height="242"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <scrollView autohidesScrollers="YES" horizontalLineScroll="60" horizontalPageScroll="10" verticalLineScroll="60" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XbT-br-iQc">
-                                <rect key="frame" x="0.0" y="0.0" width="400" height="242"/>
+                            <scrollView autohidesScrollers="YES" horizontalLineScroll="70" horizontalPageScroll="10" verticalLineScroll="70" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XbT-br-iQc">
+                                <rect key="frame" x="0.0" y="0.0" width="480" height="242"/>
                                 <clipView key="contentView" id="QWc-kT-Mid">
-                                    <rect key="frame" x="1" y="1" width="398" height="240"/>
+                                    <rect key="frame" x="1" y="1" width="478" height="240"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" alternatingRowBackgroundColors="YES" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowHeight="60" viewBased="YES" id="zgC-nW-DP9">
-                                            <rect key="frame" x="0.0" y="0.0" width="480" height="240"/>
+                                        <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" alternatingRowBackgroundColors="YES" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowHeight="70" viewBased="YES" id="zgC-nW-DP9">
+                                            <rect key="frame" x="0.0" y="0.0" width="498" height="240"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <size key="intercellSpacing" width="17" height="0.0"/>
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                             <tableColumns>
-                                                <tableColumn width="468" minWidth="10" maxWidth="3.4028234663852886e+38" id="dtG-6R-tiK">
+                                                <tableColumn width="486" minWidth="10" maxWidth="3.4028234663852886e+38" id="dtG-6R-tiK">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left">
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -885,24 +866,130 @@ Gw
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView identifier="DownloadTableCell" id="KiX-Ml-NuR" customClass="DownloadTableCellView" customModule="dl_buddy" customModuleProvider="target">
-                                                            <rect key="frame" x="8" y="0.0" width="400" height="60"/>
+                                                            <rect key="frame" x="8" y="0.0" width="481" height="70"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="lsm-Ah-GZL">
-                                                                    <rect key="frame" x="182" y="22" width="37" height="16"/>
+                                                                    <rect key="frame" x="13" y="43" width="457" height="16"/>
                                                                     <textFieldCell key="cell" lineBreakMode="clipping" title="Label" id="tAG-K5-Zyd">
                                                                         <font key="font" usesAppearanceFont="YES"/>
                                                                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                                     </textFieldCell>
                                                                 </textField>
+                                                                <progressIndicator maxValue="1" style="bar" translatesAutoresizingMaskIntoConstraints="NO" id="Oth-2M-QRX">
+                                                                    <rect key="frame" x="15" y="25" width="407" height="20"/>
+                                                                </progressIndicator>
+                                                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="y7H-dy-Z0W">
+                                                                    <rect key="frame" x="13" y="11" width="457" height="14"/>
+                                                                    <textFieldCell key="cell" lineBreakMode="clipping" title="Label" id="gXS-rv-g2k">
+                                                                        <font key="font" metaFont="smallSystem"/>
+                                                                        <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
+                                                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                                    </textFieldCell>
+                                                                </textField>
+                                                                <button hidden="YES" toolTip="Pause download" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="0pl-FD-Pf4">
+                                                                    <rect key="frame" x="439" y="22" width="15" height="26"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" constant="15" id="BJ4-3R-a0E"/>
+                                                                        <constraint firstAttribute="height" constant="20" id="VRi-JU-5xH"/>
+                                                                    </constraints>
+                                                                    <buttonCell key="cell" type="bevel" bezelStyle="regularSquare" image="pause.circle.fill" catalog="system" imagePosition="only" alignment="center" inset="2" id="VRj-5J-KZp">
+                                                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                                        <font key="font" metaFont="system"/>
+                                                                    </buttonCell>
+                                                                    <connections>
+                                                                        <action selector="pauseDownloadClicked:" target="rPt-NT-nkU" id="MhZ-mH-cq8"/>
+                                                                    </connections>
+                                                                </button>
+                                                                <button hidden="YES" toolTip="Resume download" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="d11-OK-m5e">
+                                                                    <rect key="frame" x="439" y="21" width="15" height="28"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" constant="15" id="8qq-gk-3ye"/>
+                                                                        <constraint firstAttribute="height" constant="22" id="avq-77-uQv"/>
+                                                                    </constraints>
+                                                                    <buttonCell key="cell" type="bevel" bezelStyle="rounded" image="play.circle.fill" catalog="system" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="1PC-MZ-NEt">
+                                                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                                        <font key="font" metaFont="system"/>
+                                                                    </buttonCell>
+                                                                    <connections>
+                                                                        <action selector="resumeDownloadClicked:" target="rPt-NT-nkU" id="34i-z6-YL4"/>
+                                                                    </connections>
+                                                                </button>
+                                                                <button hidden="YES" toolTip="Show in Finder" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="0MP-00-7OB">
+                                                                    <rect key="frame" x="437" y="21" width="18" height="28"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" constant="22" id="U2B-Oi-Fkh"/>
+                                                                        <constraint firstAttribute="width" constant="18" id="cJS-gp-Gbl"/>
+                                                                    </constraints>
+                                                                    <buttonCell key="cell" type="bevel" bezelStyle="rounded" image="magnifyingglass.circle.fill" catalog="system" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="N1t-Ga-lrO">
+                                                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                                        <font key="font" metaFont="system"/>
+                                                                    </buttonCell>
+                                                                    <connections>
+                                                                        <action selector="showInFinderClicked:" target="rPt-NT-nkU" id="p61-MM-262"/>
+                                                                    </connections>
+                                                                </button>
+                                                                <button hidden="YES" toolTip="Cancel download" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="LTL-tr-A73">
+                                                                    <rect key="frame" x="460" y="22" width="18" height="26"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" constant="18" id="4T4-6U-5b7"/>
+                                                                        <constraint firstAttribute="height" constant="20" id="zS5-dc-Ldc"/>
+                                                                    </constraints>
+                                                                    <buttonCell key="cell" type="bevel" bezelStyle="rounded" image="stop.circle.fill" catalog="system" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="hSf-J4-Nun">
+                                                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                                        <font key="font" metaFont="system"/>
+                                                                    </buttonCell>
+                                                                    <connections>
+                                                                        <action selector="cancelDownloadClicked:" target="rPt-NT-nkU" id="5v3-H3-0Ss"/>
+                                                                    </connections>
+                                                                </button>
+                                                                <button hidden="YES" toolTip="Remove download" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="smj-oe-1WG">
+                                                                    <rect key="frame" x="460" y="21" width="18" height="28"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" constant="22" id="BDN-Wi-Imf"/>
+                                                                        <constraint firstAttribute="width" constant="18" id="YVF-7e-sbA"/>
+                                                                    </constraints>
+                                                                    <buttonCell key="cell" type="bevel" bezelStyle="rounded" image="xmark.circle.fill" catalog="system" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="vcV-pV-4xI">
+                                                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                                        <font key="font" metaFont="system"/>
+                                                                    </buttonCell>
+                                                                    <connections>
+                                                                        <action selector="removeDownloadClicked:" target="rPt-NT-nkU" id="QgH-GX-AxZ"/>
+                                                                    </connections>
+                                                                </button>
                                                             </subviews>
                                                             <constraints>
-                                                                <constraint firstItem="lsm-Ah-GZL" firstAttribute="centerX" secondItem="KiX-Ml-NuR" secondAttribute="centerX" id="5oN-86-HDj"/>
-                                                                <constraint firstItem="lsm-Ah-GZL" firstAttribute="centerY" secondItem="KiX-Ml-NuR" secondAttribute="centerY" id="emR-MB-38A"/>
+                                                                <constraint firstItem="Oth-2M-QRX" firstAttribute="top" secondItem="lsm-Ah-GZL" secondAttribute="bottom" constant="-1" id="4JY-jW-RcW"/>
+                                                                <constraint firstItem="0MP-00-7OB" firstAttribute="leading" secondItem="Oth-2M-QRX" secondAttribute="trailing" constant="15" id="6xs-WM-yRY"/>
+                                                                <constraint firstItem="y7H-dy-Z0W" firstAttribute="top" secondItem="Oth-2M-QRX" secondAttribute="bottom" constant="1" id="CjF-Kc-h0F"/>
+                                                                <constraint firstItem="LTL-tr-A73" firstAttribute="centerY" secondItem="KiX-Ml-NuR" secondAttribute="centerY" id="Fkt-7h-ygF"/>
+                                                                <constraint firstAttribute="trailing" secondItem="smj-oe-1WG" secondAttribute="trailing" constant="3" id="GYI-J4-Pu9"/>
+                                                                <constraint firstItem="Oth-2M-QRX" firstAttribute="leading" secondItem="KiX-Ml-NuR" secondAttribute="leading" constant="15" id="HUr-UP-bbB"/>
+                                                                <constraint firstItem="d11-OK-m5e" firstAttribute="centerY" secondItem="KiX-Ml-NuR" secondAttribute="centerY" id="RQk-Gh-JkC"/>
+                                                                <constraint firstAttribute="trailing" secondItem="lsm-Ah-GZL" secondAttribute="trailing" constant="13" id="SMP-hJ-ipd"/>
+                                                                <constraint firstItem="0pl-FD-Pf4" firstAttribute="leading" secondItem="Oth-2M-QRX" secondAttribute="trailing" constant="17" id="T4H-qy-A0r"/>
+                                                                <constraint firstAttribute="trailing" secondItem="LTL-tr-A73" secondAttribute="trailing" constant="3" id="W2Q-5s-e2b"/>
+                                                                <constraint firstItem="lsm-Ah-GZL" firstAttribute="top" secondItem="KiX-Ml-NuR" secondAttribute="top" constant="11" id="W6T-Sj-8hJ"/>
+                                                                <constraint firstAttribute="bottom" secondItem="y7H-dy-Z0W" secondAttribute="bottom" constant="11" id="YN1-aU-V12"/>
+                                                                <constraint firstItem="smj-oe-1WG" firstAttribute="centerY" secondItem="KiX-Ml-NuR" secondAttribute="centerY" id="cdv-EG-YpN"/>
+                                                                <constraint firstItem="d11-OK-m5e" firstAttribute="leading" secondItem="Oth-2M-QRX" secondAttribute="trailing" constant="17" id="cp2-qs-eg4"/>
+                                                                <constraint firstItem="0MP-00-7OB" firstAttribute="centerY" secondItem="KiX-Ml-NuR" secondAttribute="centerY" id="gFB-2S-skp"/>
+                                                                <constraint firstItem="lsm-Ah-GZL" firstAttribute="leading" secondItem="KiX-Ml-NuR" secondAttribute="leading" constant="15" id="gQx-ef-Rsw"/>
+                                                                <constraint firstItem="0pl-FD-Pf4" firstAttribute="centerY" secondItem="KiX-Ml-NuR" secondAttribute="centerY" id="hl6-lJ-Lht"/>
+                                                                <constraint firstAttribute="trailing" secondItem="y7H-dy-Z0W" secondAttribute="trailing" constant="13" id="iLf-jX-5Py"/>
+                                                                <constraint firstItem="y7H-dy-Z0W" firstAttribute="leading" secondItem="KiX-Ml-NuR" secondAttribute="leading" constant="15" id="pL1-gN-Dwy"/>
+                                                                <constraint firstAttribute="trailing" secondItem="Oth-2M-QRX" secondAttribute="trailing" constant="59" id="w8a-Kb-foA"/>
                                                             </constraints>
                                                             <connections>
-                                                                <outlet property="sampleLabel" destination="lsm-Ah-GZL" id="feh-YI-Ncw"/>
+                                                                <outlet property="cancelButton" destination="LTL-tr-A73" id="bsO-Iu-Weo"/>
+                                                                <outlet property="mainLabel" destination="lsm-Ah-GZL" id="Zro-e7-rAP"/>
+                                                                <outlet property="pauseButton" destination="0pl-FD-Pf4" id="NmF-FX-nEe"/>
+                                                                <outlet property="progressView" destination="Oth-2M-QRX" id="sWZ-UA-6bD"/>
+                                                                <outlet property="removeButton" destination="smj-oe-1WG" id="uCo-uV-Djd"/>
+                                                                <outlet property="resumeButton" destination="d11-OK-m5e" id="Esb-T1-9Hj"/>
+                                                                <outlet property="secondaryLabel" destination="y7H-dy-Z0W" id="vyZ-eq-B8m"/>
+                                                                <outlet property="showInFinderButton" destination="0MP-00-7OB" id="8jD-Bk-3Ru"/>
                                                             </connections>
                                                         </tableCellView>
                                                     </prototypeCellViews>
@@ -915,8 +1002,8 @@ Gw
                                         </tableView>
                                     </subviews>
                                 </clipView>
-                                <scroller key="horizontalScroller" wantsLayer="YES" verticalHuggingPriority="750" doubleValue="0.097560975609756101" horizontal="YES" id="tmM-QB-csr">
-                                    <rect key="frame" x="1" y="225" width="398" height="16"/>
+                                <scroller key="horizontalScroller" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="tmM-QB-csr">
+                                    <rect key="frame" x="1" y="225" width="478" height="16"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="wzf-OB-MzF">
@@ -926,10 +1013,10 @@ Gw
                             </scrollView>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="XbT-br-iQc" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="LIg-jH-Lbz"/>
-                            <constraint firstItem="XbT-br-iQc" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" id="SCl-bt-0Gc"/>
-                            <constraint firstAttribute="trailing" secondItem="XbT-br-iQc" secondAttribute="trailing" id="XPO-A6-qE3"/>
-                            <constraint firstAttribute="bottom" secondItem="XbT-br-iQc" secondAttribute="bottom" id="m39-2o-JUd"/>
+                            <constraint firstItem="XbT-br-iQc" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="0AM-Hu-JuJ"/>
+                            <constraint firstAttribute="trailing" secondItem="XbT-br-iQc" secondAttribute="trailing" id="5zA-Oz-SwZ"/>
+                            <constraint firstItem="XbT-br-iQc" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" id="go0-pS-9lb"/>
+                            <constraint firstAttribute="bottom" secondItem="XbT-br-iQc" secondAttribute="bottom" id="m1U-9o-Vti"/>
                         </constraints>
                     </view>
                     <connections>
@@ -938,10 +1025,15 @@ Gw
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75.5" y="687"/>
+            <point key="canvasLocation" x="75" y="731"/>
         </scene>
     </scenes>
     <resources>
         <image name="NSAddTemplate" width="14" height="13"/>
+        <image name="magnifyingglass.circle.fill" catalog="system" width="15" height="15"/>
+        <image name="pause.circle.fill" catalog="system" width="15" height="15"/>
+        <image name="play.circle.fill" catalog="system" width="15" height="15"/>
+        <image name="stop.circle.fill" catalog="system" width="15" height="15"/>
+        <image name="xmark.circle.fill" catalog="system" width="15" height="15"/>
     </resources>
 </document>

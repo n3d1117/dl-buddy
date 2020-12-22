@@ -66,7 +66,7 @@ class DestinationPickerViewController: NSViewController {
     }
 
     fileprivate func highlightErrorInUrlTextField() {
-        urlTextField.backgroundColor = NSColor.red.withAlphaComponent(0.05)
+        urlTextField.backgroundColor = NSColor.systemRed.withAlphaComponent(0.05)
     }
 
     fileprivate func setDownloadButtonEnabled(_ value: Bool) {

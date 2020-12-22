@@ -7,7 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		811EE60F258F8E4600488707 /* DownloadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 811EE60E258F8E4600488707 /* DownloadManager.swift */; };
+		811EE613258F8FA200488707 /* DownloadModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 811EE612258F8FA200488707 /* DownloadModel.swift */; };
+		812514DB25914F60007B4E40 /* MainViewController+ContextualMenus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812514DA25914F60007B4E40 /* MainViewController+ContextualMenus.swift */; };
+		812514DF25915840007B4E40 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812514DE25915840007B4E40 /* NetworkManager.swift */; };
 		8127AB88258E31B1008373AD /* dl_buddyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8127AB87258E31B1008373AD /* dl_buddyTests.swift */; };
+		814B19FE2592270600396D66 /* DownloadTableCellRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814B19FD2592270600396D66 /* DownloadTableCellRowView.swift */; };
 		814FC036258CEC5700B086E4 /* URLAndDestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814FC035258CEC5700B086E4 /* URLAndDestModel.swift */; };
 		814FC03D258CFC6C00B086E4 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814FC03C258CFC6C00B086E4 /* Extensions.swift */; };
 		81A73548258BD2E7006FF70A /* DownloadTableCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A73547258BD2E6006FF70A /* DownloadTableCellView.swift */; };
@@ -30,9 +35,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		811EE60E258F8E4600488707 /* DownloadManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadManager.swift; sourceTree = "<group>"; };
+		811EE612258F8FA200488707 /* DownloadModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadModel.swift; sourceTree = "<group>"; };
+		812514DA25914F60007B4E40 /* MainViewController+ContextualMenus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainViewController+ContextualMenus.swift"; sourceTree = "<group>"; };
+		812514DE25915840007B4E40 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		8127AB85258E31B1008373AD /* dl-buddyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "dl-buddyTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8127AB87258E31B1008373AD /* dl_buddyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dl_buddyTests.swift; sourceTree = "<group>"; };
 		8127AB89258E31B1008373AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		814B19FD2592270600396D66 /* DownloadTableCellRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadTableCellRowView.swift; sourceTree = "<group>"; };
 		814FC035258CEC5700B086E4 /* URLAndDestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLAndDestModel.swift; sourceTree = "<group>"; };
 		814FC03C258CFC6C00B086E4 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		81A73547258BD2E6006FF70A /* DownloadTableCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadTableCellView.swift; sourceTree = "<group>"; };
@@ -96,6 +106,8 @@
 			isa = PBXGroup;
 			children = (
 				81CBF2902588ECDE00FB9D2F /* Main.storyboard */,
+				812514DE25915840007B4E40 /* NetworkManager.swift */,
+				811EE60E258F8E4600488707 /* DownloadManager.swift */,
 				81F59C37258A180F003DB867 /* View Controllers */,
 				81F59C36258A180A003DB867 /* Views */,
 				81F59C35258A1805003DB867 /* Models */,
@@ -120,6 +132,7 @@
 			isa = PBXGroup;
 			children = (
 				814FC035258CEC5700B086E4 /* URLAndDestModel.swift */,
+				811EE612258F8FA200488707 /* DownloadModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -128,6 +141,7 @@
 			isa = PBXGroup;
 			children = (
 				81A73547258BD2E6006FF70A /* DownloadTableCellView.swift */,
+				814B19FD2592270600396D66 /* DownloadTableCellRowView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -137,6 +151,7 @@
 			children = (
 				81CBF28C2588ECDD00FB9D2F /* MainViewController.swift */,
 				81D7A6D0258CD3060061AC1F /* DestinationPickerViewController.swift */,
+				812514DA25914F60007B4E40 /* MainViewController+ContextualMenus.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -275,12 +290,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				814B19FE2592270600396D66 /* DownloadTableCellRowView.swift in Sources */,
 				81A73548258BD2E7006FF70A /* DownloadTableCellView.swift in Sources */,
 				814FC03D258CFC6C00B086E4 /* Extensions.swift in Sources */,
+				812514DF25915840007B4E40 /* NetworkManager.swift in Sources */,
 				81CBF28D2588ECDD00FB9D2F /* MainViewController.swift in Sources */,
 				81CBF28B2588ECDD00FB9D2F /* AppDelegate.swift in Sources */,
 				81D7A6D2258CD3060061AC1F /* DestinationPickerViewController.swift in Sources */,
 				814FC036258CEC5700B086E4 /* URLAndDestModel.swift in Sources */,
+				811EE60F258F8E4600488707 /* DownloadManager.swift in Sources */,
+				811EE613258F8FA200488707 /* DownloadModel.swift in Sources */,
+				812514DB25914F60007B4E40 /* MainViewController+ContextualMenus.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -310,9 +330,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = 9Y4562FZWB;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "dl-buddyTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -322,6 +342,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				PRODUCT_BUNDLE_IDENTIFIER = "it.ned.dl-buddyTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/dl-buddy.app/Contents/MacOS/dl-buddy";
 			};
@@ -331,9 +352,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = 9Y4562FZWB;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "dl-buddyTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -343,6 +364,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				PRODUCT_BUNDLE_IDENTIFIER = "it.ned.dl-buddyTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/dl-buddy.app/Contents/MacOS/dl-buddy";
 			};
@@ -469,9 +491,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "dl-buddy/Stuff/dl_buddy.entitlements";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = 9Y4562FZWB;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = "dl-buddy/Stuff/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -480,6 +502,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "it.ned.dl-buddy";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -490,9 +513,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "dl-buddy/Stuff/dl_buddy.entitlements";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = 9Y4562FZWB;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = "dl-buddy/Stuff/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -501,6 +524,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "it.ned.dl-buddy";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;

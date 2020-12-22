@@ -28,3 +28,32 @@ extension URL {
     }
 
 }
+
+extension Int64 {
+
+    var humanReadable: String {
+        ByteCountFormatter.string(fromByteCount: self, countStyle: .file)
+    }
+
+}
+
+extension Progress {
+
+    var asString: String {
+        let readString: String = completedUnitCount.humanReadable
+        let totalString: String = totalUnitCount.humanReadable
+        let percentage = String(Int(fractionCompleted * 100)) + "%"
+        return "Downloading \(readString) of \(totalString) (\(percentage))"
+    }
+
+}
+
+extension Array where Element: Hashable {
+
+    func difference(from other: [Element]) -> [Element] {
+        let thisSet = Set(self)
+        let otherSet = Set(other)
+        return Array(thisSet.symmetricDifference(otherSet))
+    }
+
+}
