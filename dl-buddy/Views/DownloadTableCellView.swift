@@ -89,7 +89,7 @@ class DownloadTableCellView: NSTableCellView {
 
         case .failed(let error):
             if !isInMouseoverMode {
-                secondaryLabel.stringValue = error
+                secondaryLabel.stringValue = "❌ " + error
             }
             setActionButtonsEnabled([.remove])
 
@@ -143,7 +143,7 @@ class DownloadTableCellView: NSTableCellView {
     /// Construct the string for the download completed label, e.g.:
     /// `Download completed 5 minutes ago in 32 seconds — 25MB`
     fileprivate func constructDownloadCompletedString() -> String {
-        var finalString = "Download completed"
+        var finalString = "✅ Download completed"
 
         if let startDate = model.startDate, let endDate = model.endDate {
             finalString += " \(endDate.humanReadable) \(endDate.localizedInterval(from: startDate))"
