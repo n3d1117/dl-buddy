@@ -62,7 +62,11 @@ extension Progress {
         let readString: String = completedUnitCount.humanReadable
         let totalString: String = totalUnitCount.humanReadable
         let percentage = String(Int(fractionCompleted * 100)) + "%"
-        return "Downloading \(readString) of \(totalString) (\(percentage))"
+        if totalUnitCount == -1 {
+            return "Downloading \(readString)"
+        } else {
+            return "Downloading \(readString) of \(totalString) (\(percentage))"
+        }
     }
 
 }
