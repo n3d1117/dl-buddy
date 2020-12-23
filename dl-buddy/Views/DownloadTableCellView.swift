@@ -31,13 +31,16 @@ class DownloadTableCellView: NSTableCellView {
     override func draw(_ dirtyRect: NSRect) {
         super.draw(dirtyRect)
 
+        /// Add tracking areas around all action buttons
         MenuItem.allCases.forEach({ actionButtonForItem($0).addTrackingArea(trackingArea(for: $0)) })
     }
 
+    /// Called when the mouse enters a tracking area
     override func mouseEntered(with event: NSEvent) {
         if let item = event.trackingArea?.userInfo?["btn"] as? MenuItem {
             isInMouseoverMode = true
 
+            /// Update secondary label with the action's description
             switch item {
             case .remove:
                 secondaryLabel.stringValue = "Remove download"
@@ -53,18 +56,23 @@ class DownloadTableCellView: NSTableCellView {
         }
     }
 
+    /// Called when the mouse exits a tracking area
     override func mouseExited(with event: NSEvent) {
         isInMouseoverMode = false
+
+        /// Reset secondary label to previous state
         updateUI(with: model)
     }
 
-    // MARK: - Helper functions
+    // MARK: - UI
 
     func updateUI(with newModel: DownloadModel) {
         self.model = newModel
 
+        /// If the filename is not known yet, use a generic `Loading...` label
         mainLabel.stringValue = model.filename ?? "Loading..."
 
+        /// Update cell UI based on model state
         switch model.state {
         case .unknown:
             isInMouseoverMode = false
@@ -100,11 +108,13 @@ class DownloadTableCellView: NSTableCellView {
         }
     }
 
+    /// Enable specified items, disable all the rest
     fileprivate func setActionButtonsEnabled(_ items: [MenuItem]) {
         items.forEach({ actionButtonForItem($0).isHidden = false })
         MenuItem.allCases.difference(from: items).forEach({ actionButtonForItem($0).isHidden = true })
     }
 
+    /// Get the associated action button from a menu item
     fileprivate func actionButtonForItem(_ item: MenuItem) -> NSButton {
         switch item {
         case .cancel: return cancelButton
@@ -115,6 +125,7 @@ class DownloadTableCellView: NSTableCellView {
         }
     }
 
+    /// Create a tracking area for the given item
     fileprivate func trackingArea(for item: MenuItem) -> NSTrackingArea {
         let rect = actionButtonForItem(item).bounds
         let options: NSTrackingArea.Options = [.mouseEnteredAndExited, .activeAlways]
@@ -122,12 +133,15 @@ class DownloadTableCellView: NSTableCellView {
         return NSTrackingArea(rect: rect, options: options, owner: self, userInfo: userInfo)
     }
 
+    /// Returns the URL of the downloaded file for the associated model
     fileprivate func getFileLocalUrl() -> URL? {
         let destinationFolder = model.destinationUrl
         guard let filename = model.filename else { return nil }
         return destinationFolder.appendingPathComponent(filename)
     }
 
+    /// Construct the string for the download completed label, e.g.:
+    /// `Download completed 5 minutes ago in 32 seconds — 25MB`
     fileprivate func constructDownloadCompletedString() -> String {
         var finalString = "Download completed"
 

@@ -6,59 +6,50 @@
 //
 
 import Foundation
-import Alamofire
-
-protocol DownloadManagerDelegate: class {
-    func downloadStarted(for model: DownloadModel, at index: Int)
-    func downloadProgress(for model: DownloadModel, at index: Int)
-    func downloadPaused(for model: DownloadModel, at index: Int)
-    func downloadResumed(for model: DownloadModel, at index: Int)
-    func downloadFinishedSuccess(for model: DownloadModel, at index: Int)
-    func downloadFinishedError(for model: DownloadModel, at index: Int)
-    func downloadCancelled(for model: DownloadModel, at index: Int)
-    func downloadRemoved(at index: Int)
-}
 
 class DownloadManager {
 
+    // MARK: - Properties
+
+    /// The download manager delegate
     weak var delegate: DownloadManagerDelegate?
+
+    /// The list of all downloads
     var downloads: [DownloadModel] = []
 
-    // MARK: - Start download
+    // MARK: - Handle download
 
     func startDownload(url: URL, destinationFolder: URL) {
 
-        // Instantiate model --
-
+        /// Instantiate model and add it to the downloads list
         let model = DownloadModel(fileUrl: url, destinationUrl: destinationFolder)
         downloads.append(model)
 
-        // Get filename --
-
+        /// Get filename from url
         NetworkManager.getFilename(from: url) { [weak self] filename in
             guard let self = self else { return }
 
-            // Update model with filename
+            /// Update model with correct filename
             if let index = self.index(for: model.id) {
                 self.downloads[index].filename = filename
             }
 
-            // Start file download
+            /// Start file download
             NetworkManager.downloadFile(from: url, destinationFolder: destinationFolder) { request in
 
                 if let index = self.index(for: model.id) {
 
-                    // Update model with request and start date
+                    /// Update model with request and start date
                     self.downloads[index].request = request
                     self.downloads[index].startDate = Date()
 
-                    // Notify delegate that download started
+                    /// Notify delegate that download started
                     self.delegate?.downloadStarted(for: self.downloads[index], at: index)
 
-                    // Handle progress
+                    /// Handle progress
                     self.handleProgress(for: self.downloads[index].id)
 
-                    // Handle completion
+                    /// Handle completion
                     self.handleCompletion(for: self.downloads[index].id)
                 }
 
@@ -72,9 +63,14 @@ class DownloadManager {
         downloads[index].request?.downloadProgress { [weak self] progress in
             guard let self = self else { return }
 
+            /// Recalculate index, it may have changed if a download was removed in the meantime
             guard let index = self.index(for: modelId), let request = self.downloads[index].request else { return }
 
+            /// Sometimes the `downloadProgress` closure gets called even after pausing the download,
+            /// so, to avoid it, we check if the request was suspended
             if !request.isSuspended {
+
+                /// Update model state and notify delegate of the progress
                 self.downloads[index].state = .downloading(progress: progress)
                 self.delegate?.downloadProgress(for: self.downloads[index], at: index)
             }
@@ -88,22 +84,29 @@ class DownloadManager {
         downloads[index].request?.response { [weak self] response in
             guard let self = self else { return }
 
+            /// Recalculate index, it may have changed if a download was removed in the meantime
             guard let index = self.index(for: modelId) else { return }
+
+            /// Update model's end date
+            self.downloads[index].endDate = Date()
+
             switch response.result {
             case .success:
-                self.downloads[index].endDate = Date()
+
+                /// Update model state and notify delegate that the download finished successfully
                 self.downloads[index].state = .completed
                 self.delegate?.downloadFinishedSuccess(for: self.downloads[index], at: index)
+
             case .failure(let error):
+
+                /// Update model state and notify delegate that the download finished with error
                 self.downloads[index].state = .failed(error: error.localizedDescription)
                 self.delegate?.downloadFinishedError(for: self.downloads[index], at: index)
             }
         }
     }
 
-    fileprivate func index(for modelId: UUID) -> Int? {
-        downloads.firstIndex(where: {$0.id == modelId})
-    }
+    // MARK: - Helper functions
 
     func pauseDownload(at index: Int) {
         guard downloads.indices.contains(index), downloads[index].state != .paused else { return }
@@ -130,6 +133,13 @@ class DownloadManager {
         downloads[index].request = nil
         downloads.remove(at: index)
         delegate?.downloadRemoved(at: index)
+    }
+
+    // MARK: - Utilities
+
+    /// Returns the correct index of the model with the specified uuid
+    fileprivate func index(for modelId: UUID) -> Int? {
+        downloads.firstIndex(where: {$0.id == modelId})
     }
 
 }

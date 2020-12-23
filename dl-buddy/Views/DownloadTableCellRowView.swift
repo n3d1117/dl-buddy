@@ -7,6 +7,7 @@
 
 import Cocoa
 
+/// A `NSTableRowView` subclass used to set a different selection color than the standard blue
 class DownloadTableCellRowView: NSTableRowView {
 
     override func draw(_ dirtyRect: NSRect) {

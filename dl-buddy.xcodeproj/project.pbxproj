@@ -13,6 +13,7 @@
 		812514DF25915840007B4E40 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812514DE25915840007B4E40 /* NetworkManager.swift */; };
 		8127AB88258E31B1008373AD /* dl_buddyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8127AB87258E31B1008373AD /* dl_buddyTests.swift */; };
 		814B19FE2592270600396D66 /* DownloadTableCellRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814B19FD2592270600396D66 /* DownloadTableCellRowView.swift */; };
+		814B1A042592402800396D66 /* DownloadManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814B1A032592402800396D66 /* DownloadManagerDelegate.swift */; };
 		814FC036258CEC5700B086E4 /* URLAndDestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814FC035258CEC5700B086E4 /* URLAndDestModel.swift */; };
 		814FC03D258CFC6C00B086E4 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814FC03C258CFC6C00B086E4 /* Extensions.swift */; };
 		81A73548258BD2E7006FF70A /* DownloadTableCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A73547258BD2E6006FF70A /* DownloadTableCellView.swift */; };
@@ -43,6 +44,7 @@
 		8127AB87258E31B1008373AD /* dl_buddyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dl_buddyTests.swift; sourceTree = "<group>"; };
 		8127AB89258E31B1008373AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		814B19FD2592270600396D66 /* DownloadTableCellRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadTableCellRowView.swift; sourceTree = "<group>"; };
+		814B1A032592402800396D66 /* DownloadManagerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadManagerDelegate.swift; sourceTree = "<group>"; };
 		814FC035258CEC5700B086E4 /* URLAndDestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLAndDestModel.swift; sourceTree = "<group>"; };
 		814FC03C258CFC6C00B086E4 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		81A73547258BD2E6006FF70A /* DownloadTableCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadTableCellView.swift; sourceTree = "<group>"; };
@@ -84,6 +86,23 @@
 			path = "dl-buddyTests";
 			sourceTree = "<group>";
 		};
+		814B1A0125923FFD00396D66 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				812514DE25915840007B4E40 /* NetworkManager.swift */,
+				811EE60E258F8E4600488707 /* DownloadManager.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		814B1A022592400300396D66 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				814B1A032592402800396D66 /* DownloadManagerDelegate.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
 		81CBF27E2588ECDD00FB9D2F = {
 			isa = PBXGroup;
 			children = (
@@ -106,8 +125,8 @@
 			isa = PBXGroup;
 			children = (
 				81CBF2902588ECDE00FB9D2F /* Main.storyboard */,
-				812514DE25915840007B4E40 /* NetworkManager.swift */,
-				811EE60E258F8E4600488707 /* DownloadManager.swift */,
+				814B1A022592400300396D66 /* Protocols */,
+				814B1A0125923FFD00396D66 /* Controllers */,
 				81F59C37258A180F003DB867 /* View Controllers */,
 				81F59C36258A180A003DB867 /* Views */,
 				81F59C35258A1805003DB867 /* Models */,
@@ -150,8 +169,8 @@
 			isa = PBXGroup;
 			children = (
 				81CBF28C2588ECDD00FB9D2F /* MainViewController.swift */,
-				81D7A6D0258CD3060061AC1F /* DestinationPickerViewController.swift */,
 				812514DA25914F60007B4E40 /* MainViewController+ContextualMenus.swift */,
+				81D7A6D0258CD3060061AC1F /* DestinationPickerViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -292,6 +311,7 @@
 			files = (
 				814B19FE2592270600396D66 /* DownloadTableCellRowView.swift in Sources */,
 				81A73548258BD2E7006FF70A /* DownloadTableCellView.swift in Sources */,
+				814B1A042592402800396D66 /* DownloadManagerDelegate.swift in Sources */,
 				814FC03D258CFC6C00B086E4 /* Extensions.swift in Sources */,
 				812514DF25915840007B4E40 /* NetworkManager.swift in Sources */,
 				81CBF28D2588ECDD00FB9D2F /* MainViewController.swift in Sources */,

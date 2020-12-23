@@ -27,8 +27,9 @@ extension URL {
         return URL(string: "https://apple.com/")!
     }
 
+    /// Returns the size of the file associated with the url, if any
     var fileSize: Int64? {
-        guard FileManager.default.fileExists(at: self) else { return nil }
+        guard exists else { return nil }
         do {
             let values = try resourceValues(forKeys: [.fileSizeKey])
             guard let fileSize = values.fileSize else { return nil }
@@ -38,10 +39,16 @@ extension URL {
         }
     }
 
+    /// Returns `true` if a file exists at the url
+    var exists: Bool {
+        return FileManager.default.fileExists(atPath: path)
+    }
+
 }
 
 extension Int64 {
 
+    /// Returns a human readable representation of a bytes count (e.g: `32783219` -> `32.8MB`)
     var humanReadable: String {
         ByteCountFormatter.string(fromByteCount: self, countStyle: .file)
     }
@@ -50,6 +57,7 @@ extension Int64 {
 
 extension Progress {
 
+    /// Returns the progress as a string, e.g.: `Downloading 1.2MB of 32.8MB (27%)`
     var asString: String {
         let readString: String = completedUnitCount.humanReadable
         let totalString: String = totalUnitCount.humanReadable
@@ -61,6 +69,7 @@ extension Progress {
 
 extension Array where Element: Hashable {
 
+    /// Returns the difference in elements between the specified array and itself
     func difference(from other: [Element]) -> [Element] {
         let thisSet = Set(self)
         let otherSet = Set(other)
@@ -71,10 +80,7 @@ extension Array where Element: Hashable {
 
 extension FileManager {
 
-    func fileExists(at url: URL) -> Bool {
-        return fileExists(atPath: url.path)
-    }
-
+    /// Returns `true` if a directory exists at the specified url
     func directoryExists(at url: URL) -> Bool {
         var isDirectory: ObjCBool = false
         let exists = fileExists(atPath: url.path, isDirectory: &isDirectory)
@@ -85,6 +91,7 @@ extension FileManager {
 
 extension Date {
 
+    /// A custom date formatter for converting a date to a string
     fileprivate var customFormatter: DateFormatter {
         let formatter = DateFormatter()
         formatter.dateStyle = .long
@@ -93,15 +100,17 @@ extension Date {
         return formatter
     }
 
+    /// A relative date formatter for converting the interval between dates to a string
     fileprivate var relativeDateFormatter: RelativeDateTimeFormatter {
-        let formatter = RelativeDateTimeFormatter()
-        return formatter
+        return RelativeDateTimeFormatter()
     }
 
+    /// Returns a human readable date and time, e.g: `Today at 13:22`
     var humanReadable: String {
         return customFormatter.string(from: self).lowercased()
     }
 
+    /// Returns a human readable time interval between the specified date and itself (e.g. `1 minute ago`)
     func localizedInterval(from: Date) -> String {
         return relativeDateFormatter.localizedString(for: self, relativeTo: from)
     }

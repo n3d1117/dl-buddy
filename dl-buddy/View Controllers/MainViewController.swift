@@ -33,19 +33,6 @@ class MainViewController: NSViewController {
         setupInitialContextualMenu()
     }
 
-    // MARK: - Helpers
-
-    fileprivate func newDownloadRequested(with model: URLAndDestModel) {
-        downloadManager.startDownload(url: model.url, destinationFolder: model.destinationFolder)
-    }
-
-    fileprivate func updateCell(at row: Int, with model: DownloadModel) {
-        guard tableView.numberOfRows >= row + 1 else { return }
-        if let cell = tableView.view(atColumn: 0, row: row, makeIfNecessary: false) as? DownloadTableCellView {
-            cell.updateUI(with: model)
-        }
-    }
-
     // MARK: - IBAction Methods
 
     @IBAction fileprivate func addButtonTapped(sender: NSToolbarItem) {
@@ -61,7 +48,7 @@ class MainViewController: NSViewController {
         view.window?.beginSheet(sheetWindow, completionHandler: { [weak self] response in
             if response == .OK {
                 guard let model = destinationVC.urlAndDestinationModel else { return }
-                self?.newDownloadRequested(with: model)
+                self?.downloadManager.startDownload(url: model.url, destinationFolder: model.destinationFolder)
             }
         })
 
@@ -94,20 +81,38 @@ class MainViewController: NSViewController {
         guard FileManager.default.directoryExists(at: destinationFolder) else { return }
         guard let filename = model.filename else { return }
         let finalUrl = destinationFolder.appendingPathComponent(filename)
-        guard FileManager.default.fileExists(at: finalUrl) else {
+
+        /// If the file doesn't exist, show the folder instead
+        guard finalUrl.exists else {
             NSWorkspace.shared.activateFileViewerSelecting([destinationFolder])
             return
         }
         NSWorkspace.shared.activateFileViewerSelecting([finalUrl])
     }
 
+    // MARK: - Helpers
+
+    fileprivate func updateCell(at row: Int, with model: DownloadModel) {
+        guard tableView.numberOfRows >= row + 1 else { return }
+        if let cell = tableView.view(atColumn: 0, row: row, makeIfNecessary: false) as? DownloadTableCellView {
+            cell.updateUI(with: model)
+        }
+    }
+
     internal func clickedRow(_ sender: AnyObject? = nil) -> Int? {
+
+        /// Detect right click
         if tableView.clickedRow >= 0 {
             return tableView.clickedRow
+
+        /// Detect when row was selected
         } else if let selectedRow = tableView.selectedRowIndexes.map({ Int($0) }).first {
             return selectedRow
+
+        /// Detect when button was clicked inside a row
         } else if let button = sender as? NSButton {
             return tableView.row(for: button)
+
         } else {
             return nil
         }

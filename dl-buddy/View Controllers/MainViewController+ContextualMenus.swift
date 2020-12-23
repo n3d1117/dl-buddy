@@ -17,6 +17,7 @@ enum MenuItem: CaseIterable {
     case remove
     case showInFinder
 
+    /// The associated `NSMenuItem`
     var item: NSMenuItem {
         switch self {
         case .pause:
@@ -43,6 +44,7 @@ enum MenuItem: CaseIterable {
         }
     }
 
+    /// The associated menu bar item, set in Storyboard
     var menuBarItem: NSMenuItem? {
 
         guard let mainMenu = NSApplication.shared.mainMenu else { return nil }
@@ -58,15 +60,22 @@ enum MenuItem: CaseIterable {
     }
 }
 
+// MARK: - NSMenuDelegate conformance
+
 extension MainViewController: NSMenuDelegate {
 
     func menuWillOpen(_ menu: NSMenu) {
+
+        /// In case a menu is opened from a right click on a row, we need to
+        /// deselect all the other rows to avoid UI inconsistencies
         for row in 0..<tableView.numberOfRows where row != tableView.clickedRow {
             tableView.deselectRow(row)
         }
+
         updateContextMenus()
     }
 
+    /// Sets up an initial contextual menu with a single remove item, setting delegate to self
     internal func setupInitialContextualMenu() {
         contextualMenu = NSMenu()
         contextualMenu?.delegate = self
@@ -74,29 +83,32 @@ extension MainViewController: NSMenuDelegate {
         tableView.menu = contextualMenu
     }
 
+    /// Update menu items both in right click menus and in the menu bar
     internal func updateContextMenus() {
         guard let row = clickedRow() else { return }
 
-        // Clear current items
+        /// Clear current items
         contextualMenu?.removeAllItems()
 
-        // Add new items
+        /// Add new items
         let menuItems = appropriateContextualMenuItems(for: row)
         menuItems.forEach({ contextualMenu?.addItem($0.item) })
 
-        // Update menu
+        /// Update menu
         tableView.menu = contextualMenu
 
-        // Update main menu bar items
+        /// Update main menu bar items
         setMenuBarItemsEnabled(menuItems)
     }
 
+    /// Return appropriate menu items for given row
     fileprivate func appropriateContextualMenuItems(for row: Int) -> [MenuItem] {
         guard downloadManager.downloads.indices.contains(row) else { return [] }
         let model = downloadManager.downloads[row]
         return menuItems(for: model.state)
     }
 
+    /// Logic begind model state and menu item mapping
     fileprivate func menuItems(for state: DownloadModel.State) -> [MenuItem] {
         switch state {
         case .completed: return [.showInFinder, .remove]
@@ -106,6 +118,7 @@ extension MainViewController: NSMenuDelegate {
         }
     }
 
+    /// Enable given items, disable all others
     fileprivate func setMenuBarItemsEnabled(_ items: [MenuItem]) {
         items.forEach({ $0.menuBarItem?.isEnabled = true })
         MenuItem.allCases.difference(from: items).forEach({ $0.menuBarItem?.isEnabled = false })
