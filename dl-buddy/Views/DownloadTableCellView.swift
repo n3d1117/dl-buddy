@@ -14,6 +14,7 @@ class DownloadTableCellView: NSTableCellView {
     @IBOutlet weak var mainLabel: NSTextField!
     @IBOutlet weak var secondaryLabel: NSTextField!
     @IBOutlet weak var progressView: NSProgressIndicator!
+    @IBOutlet weak var contentImageView: NSImageView!
 
     @IBOutlet weak var showInFinderButton: NSButton!
     @IBOutlet weak var cancelButton: NSButton!
@@ -74,6 +75,7 @@ class DownloadTableCellView: NSTableCellView {
 
         /// Update cell UI based on model state
         switch model.state {
+
         case .unknown:
             isInMouseoverMode = false
             secondaryLabel.stringValue = "Loading..."
@@ -105,6 +107,13 @@ class DownloadTableCellView: NSTableCellView {
             }
             progressView.doubleValue = progress.fractionCompleted
             setActionButtonsEnabled([.pause, .cancel])
+        }
+
+        if #available(OSX 11.0, *) {
+            let symbolName = model.contentType.associatedImageGlyph
+            contentImageView.image = NSImage(systemSymbolName: symbolName, accessibilityDescription: nil)
+        } else {
+            contentImageView.image = NSImage(named: "generic_download")
         }
     }
 

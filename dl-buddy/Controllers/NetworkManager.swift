@@ -12,19 +12,23 @@ enum NetworkManager {
 
     typealias Request = Alamofire.DownloadRequest
 
-    /// Request a suggested file name from the server, using a HTTP HEAD request
+    /// Request a suggested file name and content type from the server, using a HTTP HEAD request
     /// - Parameters:
     ///   - url: url of the file to download
-    ///   - completion: callback containing the suggested filename, if found, or the url string itself
-    static func getFilename(from url: URL, completion: @escaping((String) -> Void)) {
+    ///   - completion: callback containing:
+    ///         1. the suggested filename, if found, or the url string itself
+    ///         2. the content type, if known
+    static func getFilenameAndContentType(from url: URL, completion: @escaping((String, ContentType) -> Void)) {
         AF.request(url, method: .head).responseString { response in
-            //print("content type: \(response.response!.allHeaderFields["Content-Type"])")
 
-            if let filename = response.response?.suggestedFilename {
-                completion(filename)
-            } else {
-                completion(url.absoluteString)
+            let filename = response.response?.suggestedFilename ?? url.absoluteString
+            var contentType: ContentType = .unknown
+
+            if let rawType = response.response?.allHeaderFields["Content-Type"] as? String {
+                contentType = ContentType(rawValue: rawType) ?? .unknown
             }
+
+            completion(filename, contentType)
         }
     }
 

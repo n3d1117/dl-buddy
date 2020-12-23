@@ -39,8 +39,13 @@ struct DownloadModel {
     /// The state associated with the model, initially unknown
     var state: State = .unknown
 
+    /// The content type associated with the model, initially unknown
+    var contentType: ContentType = .unknown
+
     /// The associated network request
     var request: NetworkManager.Request?
 }
+
+// MARK: - Equatable conformance
 
 extension DownloadModel.State: Equatable { }

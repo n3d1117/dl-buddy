@@ -26,12 +26,13 @@ class DownloadManager {
         downloads.append(model)
 
         /// Get filename from url
-        NetworkManager.getFilename(from: url) { [weak self] filename in
+        NetworkManager.getFilenameAndContentType(from: url) { [weak self] filename, contentType in
             guard let self = self else { return }
 
-            /// Update model with correct filename
+            /// Update model with correct filename and content type
             if let index = self.index(for: model.id) {
                 self.downloads[index].filename = filename
+                self.downloads[index].contentType = contentType
             }
 
             /// Start file download
