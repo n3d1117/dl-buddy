@@ -11,7 +11,7 @@
 		811EE613258F8FA200488707 /* DownloadModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 811EE612258F8FA200488707 /* DownloadModel.swift */; };
 		812514DB25914F60007B4E40 /* MainViewController+ContextualMenus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812514DA25914F60007B4E40 /* MainViewController+ContextualMenus.swift */; };
 		812514DF25915840007B4E40 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812514DE25915840007B4E40 /* NetworkManager.swift */; };
-		8127AB88258E31B1008373AD /* dl_buddyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8127AB87258E31B1008373AD /* dl_buddyTests.swift */; };
+		8127AB88258E31B1008373AD /* URLAndDestinationModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8127AB87258E31B1008373AD /* URLAndDestinationModelTests.swift */; };
 		814B19FE2592270600396D66 /* DownloadTableCellRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814B19FD2592270600396D66 /* DownloadTableCellRowView.swift */; };
 		814B1A042592402800396D66 /* DownloadManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814B1A032592402800396D66 /* DownloadManagerDelegate.swift */; };
 		814FC036258CEC5700B086E4 /* URLAndDestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814FC035258CEC5700B086E4 /* URLAndDestModel.swift */; };
@@ -43,7 +43,7 @@
 		812514DA25914F60007B4E40 /* MainViewController+ContextualMenus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainViewController+ContextualMenus.swift"; sourceTree = "<group>"; };
 		812514DE25915840007B4E40 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		8127AB85258E31B1008373AD /* dl-buddyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "dl-buddyTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		8127AB87258E31B1008373AD /* dl_buddyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dl_buddyTests.swift; sourceTree = "<group>"; };
+		8127AB87258E31B1008373AD /* URLAndDestinationModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLAndDestinationModelTests.swift; sourceTree = "<group>"; };
 		8127AB89258E31B1008373AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		814B19FD2592270600396D66 /* DownloadTableCellRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadTableCellRowView.swift; sourceTree = "<group>"; };
 		814B1A032592402800396D66 /* DownloadManagerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadManagerDelegate.swift; sourceTree = "<group>"; };
@@ -84,7 +84,7 @@
 		8127AB86258E31B1008373AD /* dl-buddyTests */ = {
 			isa = PBXGroup;
 			children = (
-				8127AB87258E31B1008373AD /* dl_buddyTests.swift */,
+				8127AB87258E31B1008373AD /* URLAndDestinationModelTests.swift */,
 				8127AB89258E31B1008373AD /* Info.plist */,
 			);
 			path = "dl-buddyTests";
@@ -315,7 +315,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8127AB88258E31B1008373AD /* dl_buddyTests.swift in Sources */,
+				8127AB88258E31B1008373AD /* URLAndDestinationModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -368,7 +368,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 9Y4562FZWB;
 				INFOPLIST_FILE = "dl-buddyTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -390,7 +390,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 9Y4562FZWB;
 				INFOPLIST_FILE = "dl-buddyTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

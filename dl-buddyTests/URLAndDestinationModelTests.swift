@@ -1,5 +1,5 @@
 //
-//  dl_buddyTests.swift
+//  URLAndDestinationModelTests.swift
 //  dl-buddyTests
 //
 //  Created by ned on 19/12/20.
