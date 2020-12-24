@@ -29,4 +29,44 @@ class UtilitiesTests: XCTestCase {
         XCTAssertFalse(fakeUrl2.isValidURL)
         XCTAssertFalse(fakeUrl3.isValidURL)
     }
+
+    // MARK: - Test Int64 extensions
+
+    func testHumanReadableFileSize() {
+        let fileSize: Int64 = 432543432
+        XCTAssertEqual(fileSize.humanReadable, "432,5 MB")
+    }
+
+    // MARK: - Test Progress extensions
+
+    func testProgressAsString() {
+        let progress = Progress()
+        progress.completedUnitCount = 327646372
+        progress.totalUnitCount = 4676743973
+        XCTAssertEqual(progress.asString, "Downloading 327,6 MB of 4,68 GB (7%)")
+    }
+
+    // MARK: - Test Array extensions
+
+    func testArrayDifference() {
+        let first = ["Joe", "Paul", "Frank", "Mark"]
+        let second = ["Paul", "Frank"]
+
+        let difference = first.difference(from: second)
+
+        XCTAssertEqual(difference.sorted(), ["Joe", "Mark"].sorted())
+    }
+
+    // MARK: - Test Date extensions
+
+    func testDateHumanReadable() {
+        let date = Date(timeIntervalSince1970: 1605623619)
+        XCTAssertEqual(date.humanReadable, "17 november 2020 at 15:33")
+    }
+
+    func testDateIntervalHumanReadable() {
+        let date = Date(timeIntervalSince1970: 1605623619) // 17 nov
+        let date2 = Date(timeIntervalSince1970: 1608820419) // 24 dec
+        XCTAssertEqual(date.localizedInterval(from: date2), "1 month ago")
+    }
 }
