@@ -90,13 +90,13 @@
 			path = "dl-buddyTests";
 			sourceTree = "<group>";
 		};
-		814B1A0125923FFD00396D66 /* Controllers */ = {
+		814B1A0125923FFD00396D66 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
 				812514DE25915840007B4E40 /* NetworkManager.swift */,
 				811EE60E258F8E4600488707 /* DownloadManager.swift */,
 			);
-			path = Controllers;
+			path = Managers;
 			sourceTree = "<group>";
 		};
 		814B1A022592400300396D66 /* Protocols */ = {
@@ -140,7 +140,7 @@
 				81CBF2902588ECDE00FB9D2F /* Main.storyboard */,
 				81BC54B12593DDD7001C2385 /* Enums */,
 				814B1A022592400300396D66 /* Protocols */,
-				814B1A0125923FFD00396D66 /* Controllers */,
+				814B1A0125923FFD00396D66 /* Managers */,
 				81F59C37258A180F003DB867 /* View Controllers */,
 				81F59C36258A180A003DB867 /* Views */,
 				81F59C35258A1805003DB867 /* Models */,
@@ -153,10 +153,10 @@
 			isa = PBXGroup;
 			children = (
 				81CBF28A2588ECDD00FB9D2F /* AppDelegate.swift */,
+				814FC03C258CFC6C00B086E4 /* Extensions.swift */,
 				81CBF28E2588ECDE00FB9D2F /* Assets.xcassets */,
 				81CBF2932588ECDE00FB9D2F /* Info.plist */,
 				81CBF2942588ECDE00FB9D2F /* dl_buddy.entitlements */,
-				814FC03C258CFC6C00B086E4 /* Extensions.swift */,
 			);
 			path = Stuff;
 			sourceTree = "<group>";
