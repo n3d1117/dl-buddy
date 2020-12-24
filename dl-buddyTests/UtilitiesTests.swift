@@ -1,5 +1,5 @@
 //
-//  URLAndDestinationModelTests.swift
+//  UtilitiesTests.swift
 //  dl-buddyTests
 //
 //  Created by ned on 19/12/20.
@@ -8,13 +8,9 @@
 import XCTest
 @testable import dl_buddy
 
-class URLAndDestinationModelTests: XCTestCase {
+class UtilitiesTests: XCTestCase {
 
-    func testInitialFields() {
-        let model = URLAndDestModel(url: .empty, destinationFolder: .empty)
-        XCTAssertEqual(model.url, URL(string: "https://apple.com/")!)
-        XCTAssertEqual(model.destinationFolder, URL(string: "https://apple.com/")!)
-    }
+    // MARK: - Test String extensions
 
     func testIsValidURLStringExtension() {
         let realUrl = "https://apple.com/"
@@ -33,5 +29,4 @@ class URLAndDestinationModelTests: XCTestCase {
         XCTAssertFalse(fakeUrl2.isValidURL)
         XCTAssertFalse(fakeUrl3.isValidURL)
     }
-
 }
