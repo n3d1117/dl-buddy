@@ -12,7 +12,7 @@ struct DownloadModel {
     /// An enum representing every state the model could be in
     enum State {
         case unknown
-        case downloading(progress: Progress)
+        case downloading(progress: CodableProgress)
         case paused
         case completed
         case failed(error: String)

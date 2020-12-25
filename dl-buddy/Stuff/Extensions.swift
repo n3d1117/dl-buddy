@@ -57,6 +57,11 @@ extension Int64 {
 
 extension Progress {
 
+    /// Returns a `Codable` compliant version of the progress
+    var codableVersion: CodableProgress {
+        return CodableProgress(completedUnitCount: completedUnitCount, totalUnitCount: totalUnitCount)
+    }
+
     /// Returns the progress as a string, e.g.: `Downloading 1.2MB of 32.8MB (27%)`
     var asString: String {
         let readString: String = completedUnitCount.humanReadable

@@ -72,7 +72,7 @@ class DownloadManager {
             if !request.isSuspended {
 
                 /// Update model state and notify delegate of the progress
-                self.downloads[index].state = .downloading(progress: progress)
+                self.downloads[index].state = .downloading(progress: progress.codableVersion)
                 self.delegate?.downloadProgress(for: self.downloads[index], at: index)
             }
 
