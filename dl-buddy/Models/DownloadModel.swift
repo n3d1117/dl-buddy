@@ -55,3 +55,23 @@ struct DownloadModel {
 // MARK: - Equatable conformance
 
 extension DownloadModel.State: Equatable { }
+
+// MARK: - Codable conformance
+
+extension DownloadModel: Codable {
+
+    /// In order to conform to `Codable`, the only non-Codable compliant object (`request`) must be
+    /// excluded from coding keys and will always be treated as `nil` when decoding
+    private enum CodingKeys: String, CodingKey {
+        case id // swiftlint:disable:this identifier_name
+        case fileUrl
+        case destinationUrl
+        case filename
+        case startDate
+        case endDate
+        case state
+        case contentType
+        case resumeData
+        case temporaryProgress
+    }
+}
