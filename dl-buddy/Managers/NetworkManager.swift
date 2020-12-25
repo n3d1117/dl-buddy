@@ -46,4 +46,18 @@ enum NetworkManager {
         completion(AF.download(url, to: destination))
     }
 
+    /// Resume download after app is closed, using previous data
+    /// - Parameters:
+    ///   - data: the resumable data
+    ///   - destinationFolder: local folder where to save the downloaded file
+    ///   - completion: callback containing the request
+    static func resumeDownload(from data: Data, destinationFolder: URL, completion: @escaping((Request) -> Void)) {
+        let destination: Request.Destination = { _, response in
+            let filename = response.suggestedFilename ?? "unknown"
+            let fileUrl = destinationFolder.appendingPathComponent(filename)
+            return (fileUrl, options: [.removePreviousFile])
+        }
+        completion(AF.download(resumingWith: data, to: destination))
+    }
+
 }
