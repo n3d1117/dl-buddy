@@ -44,6 +44,12 @@ struct DownloadModel {
 
     /// The associated network request
     var request: NetworkManager.Request?
+
+    /// The resume data, used to restart download after app is closed
+    var resumeData: Data?
+
+    /// The download progress fraction, used to restore the progress bar after app is closed
+    var temporaryProgress: Double?
 }
 
 // MARK: - Equatable conformance
