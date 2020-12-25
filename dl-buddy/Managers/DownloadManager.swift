@@ -36,7 +36,8 @@ class DownloadManager {
             }
 
             /// Start file download
-            NetworkManager.downloadFile(from: url, destinationFolder: destinationFolder) { request in
+            NetworkManager.downloadFile(from: url, destinationFolder: destinationFolder) { [weak self] request in
+                guard let self = self else { return }
 
                 if let index = self.index(for: model.id) {
 
