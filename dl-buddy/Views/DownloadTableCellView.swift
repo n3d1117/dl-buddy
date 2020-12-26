@@ -67,11 +67,24 @@ class DownloadTableCellView: NSTableCellView {
 
     // MARK: - UI
 
-    func updateUI(with newModel: DownloadModel) {
+    func updateUI(with newModel: DownloadModel) { //swiftlint:disable:this cyclomatic_complexity
         self.model = newModel
 
         /// If the filename is not known yet, use a generic `Loading...` label
         mainLabel.stringValue = model.filename ?? "Loading..."
+
+        /// If there's a cache progress value, use it
+        if let progress = model.temporaryProgress {
+            progressView.doubleValue = progress
+        }
+
+        /// Set content image view
+        if #available(OSX 11.0, *) {
+            let symbolName = model.contentType.associatedImageGlyph
+            contentImageView.image = NSImage(systemSymbolName: symbolName, accessibilityDescription: nil)
+        } else {
+            contentImageView.image = NSImage(named: "generic_download")
+        }
 
         /// Update cell UI based on model state
         switch model.state {
@@ -107,13 +120,6 @@ class DownloadTableCellView: NSTableCellView {
             }
             progressView.doubleValue = progress.fractionCompleted
             setActionButtonsEnabled([.pause, .cancel])
-        }
-
-        if #available(OSX 11.0, *) {
-            let symbolName = model.contentType.associatedImageGlyph
-            contentImageView.image = NSImage(systemSymbolName: symbolName, accessibilityDescription: nil)
-        } else {
-            contentImageView.image = NSImage(named: "generic_download")
         }
     }
 

@@ -31,6 +31,20 @@ class MainViewController: NSViewController {
         super.viewDidLoad()
 
         setupInitialContextualMenu()
+
+        /// Register for `willTerminateNotification` which is called right before app is quit
+        let notification: NSNotification.Name = NSApplication.willTerminateNotification
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(cacheDownloadsBeforeClose),
+                                               name: notification, object: nil)
+
+        /// Load eventual cached downloads from previous app launch and reload the data
+        downloadManager.loadCachedDownloads()
+        tableView.reloadData()
+    }
+
+    @objc func cacheDownloadsBeforeClose() {
+        downloadManager.cacheDownloadsList()
     }
 
     // MARK: - IBAction Methods

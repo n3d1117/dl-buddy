@@ -35,3 +35,11 @@ enum ContentType: String {
     }
 
 }
+
+// MARK: - Equatable conformance
+
+extension ContentType: Equatable { }
+
+// MARK: - Codable conformance
+
+extension ContentType: Codable { }

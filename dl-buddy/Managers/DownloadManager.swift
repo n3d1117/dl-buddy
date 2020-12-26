@@ -36,7 +36,8 @@ class DownloadManager {
             }
 
             /// Start file download
-            NetworkManager.downloadFile(from: url, destinationFolder: destinationFolder) { request in
+            NetworkManager.downloadFile(from: url, destinationFolder: destinationFolder) { [weak self] request in
+                guard let self = self else { return }
 
                 if let index = self.index(for: model.id) {
 
@@ -71,8 +72,9 @@ class DownloadManager {
             /// so, to avoid it, we check if the request was suspended
             if !request.isSuspended {
 
-                /// Update model state and notify delegate of the progress
-                self.downloads[index].state = .downloading(progress: progress)
+                /// Reset temporary progress, update model state and notify delegate of the progress
+                self.downloads[index].temporaryProgress = nil
+                self.downloads[index].state = .downloading(progress: progress.codableVersion)
                 self.delegate?.downloadProgress(for: self.downloads[index], at: index)
             }
 
@@ -118,7 +120,12 @@ class DownloadManager {
 
     func resumeDownload(at index: Int) {
         guard downloads.indices.contains(index), downloads[index].state == .paused else { return }
-        downloads[index].request?.resume()
+        if downloads[index].request != nil {
+            downloads[index].request?.resume()
+        } else {
+            /// If the request is nil, try to resume from cached `resumeData`
+            tryResumeDownloadFromPreviousData(index: index)
+        }
         delegate?.downloadResumed(for: downloads[index], at: index)
     }
 
@@ -139,8 +146,24 @@ class DownloadManager {
     // MARK: - Utilities
 
     /// Returns the correct index of the model with the specified uuid
-    fileprivate func index(for modelId: UUID) -> Int? {
+    internal func index(for modelId: UUID) -> Int? {
         downloads.firstIndex(where: {$0.id == modelId})
+    }
+
+    /// Tries to resume download from previously cached `resumeData` object
+    internal func tryResumeDownloadFromPreviousData(index: Int) {
+        guard downloads.indices.contains(index) else { return }
+        guard let resumeData = downloads[index].resumeData else { return }
+
+        let destination = downloads[index].destinationUrl
+        NetworkManager.resumeDownload(from: resumeData, destinationFolder: destination) { [weak self] request in
+            guard let self = self else { return }
+
+            /// Update request inside the model, then handle progress and completion as normal
+            self.downloads[index].request = request
+            self.handleProgress(for: self.downloads[index].id)
+            self.handleCompletion(for: self.downloads[index].id)
+        }
     }
 
 }

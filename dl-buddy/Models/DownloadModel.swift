@@ -12,7 +12,7 @@ struct DownloadModel {
     /// An enum representing every state the model could be in
     enum State {
         case unknown
-        case downloading(progress: Progress)
+        case downloading(progress: CodableProgress)
         case paused
         case completed
         case failed(error: String)
@@ -44,8 +44,34 @@ struct DownloadModel {
 
     /// The associated network request
     var request: NetworkManager.Request?
+
+    /// The resume data, used to restart download after app is closed
+    var resumeData: Data?
+
+    /// The download progress fraction, used to restore the progress bar after app is closed
+    var temporaryProgress: Double?
 }
 
 // MARK: - Equatable conformance
 
 extension DownloadModel.State: Equatable { }
+
+// MARK: - Codable conformance
+
+extension DownloadModel: Codable {
+
+    /// In order to conform to `Codable`, the only non-Codable compliant object (`request`) must be
+    /// excluded from coding keys and will always be treated as `nil` when decoding
+    private enum CodingKeys: String, CodingKey {
+        case id // swiftlint:disable:this identifier_name
+        case fileUrl
+        case destinationUrl
+        case filename
+        case startDate
+        case endDate
+        case state
+        case contentType
+        case resumeData
+        case temporaryProgress
+    }
+}
