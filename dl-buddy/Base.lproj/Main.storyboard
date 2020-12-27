@@ -898,7 +898,7 @@ Gw
                                                                         <constraint firstAttribute="height" constant="20" id="gWv-mm-aPS"/>
                                                                         <constraint firstAttribute="width" constant="18" id="hzp-b4-MbU"/>
                                                                     </constraints>
-                                                                    <buttonCell key="cell" type="bevel" bezelStyle="regularSquare" image="pause.circle.fill" catalog="system" imagePosition="only" alignment="center" inset="2" id="VRj-5J-KZp">
+                                                                    <buttonCell key="cell" type="bevel" bezelStyle="regularSquare" image="pause.circle.fill" catalog="system" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="VRj-5J-KZp">
                                                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                                         <font key="font" metaFont="system"/>
                                                                     </buttonCell>
