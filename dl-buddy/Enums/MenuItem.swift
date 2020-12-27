@@ -32,7 +32,7 @@ enum MenuItem {
                               action: #selector(MainViewController.cancelDownloadClicked(_:)),
                               keyEquivalent: "u")
         case .remove:
-            // Note: `\u{08}` = ⌘⌫
+            /// Note: `\u{08}` = ⌘⌫
             return NSMenuItem(title: "Remove",
                               action: #selector(MainViewController.removeDownloadClicked(_:)),
                               keyEquivalent: "\u{08}")

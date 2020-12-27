@@ -40,6 +40,10 @@ enum ContentType: String {
 
 extension ContentType: Equatable { }
 
+// MARK: - CaseIterable conformance
+
+extension ContentType: CaseIterable { }
+
 // MARK: - Codable conformance
 
 extension ContentType: Codable { }

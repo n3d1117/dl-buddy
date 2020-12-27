@@ -69,4 +69,58 @@ class UtilitiesTests: XCTestCase {
         let date2 = Date(timeIntervalSince1970: 1608820419) // 24 dec
         XCTAssertEqual(date.localizedInterval(from: date2), "1 month ago")
     }
+
+    // MARK: - Test Codable Progress
+
+    func testCodableProgress() {
+        let progress = Progress(totalUnitCount: 3678212)
+        progress.completedUnitCount = 2536479
+
+        let codableProgress = CodableProgress(completedUnitCount: 2536479, totalUnitCount: 3678212)
+
+        XCTAssertEqual(codableProgress, progress.codableVersion)
+    }
+
+    // MARK: - Test Codable encoding/decoding
+
+    fileprivate func encodeAndDecode<T>(_ value: T) throws -> T where T: Codable {
+        let data = try XCTUnwrap(JSONEncoder().encode(value))
+        return try XCTUnwrap(JSONDecoder().decode(T.self, from: data))
+    }
+
+    func testDownloadStateEncoding() throws {
+        let allStates: [DownloadModel.State] = [
+            .completed,
+            .failed(error: "test error"),
+            .downloading(progress: CodableProgress()),
+            .paused,
+            .unknown
+        ]
+        try allStates.forEach { state in
+            let encoded = try encodeAndDecode(state)
+            XCTAssertEqual(encoded, state)
+        }
+    }
+
+    func testContentTypeEncoding() throws {
+        try ContentType.allCases.forEach { type in
+            let encoded = try encodeAndDecode(type)
+            XCTAssertEqual(encoded, type)
+        }
+    }
+
+    func testDownloadModelEncoding() throws {
+        let model = DownloadModel(id: UUID(), fileUrl: .empty, destinationUrl: .empty,
+                                  filename: "test", startDate: Date(), endDate: Date(),
+                                  state: .completed, contentType: .epub)
+        let decodedModel = try encodeAndDecode(model)
+
+        XCTAssertEqual(decodedModel.id, model.id)
+        XCTAssertEqual(decodedModel.fileUrl, model.fileUrl)
+        XCTAssertEqual(decodedModel.filename, model.filename)
+        XCTAssertEqual(decodedModel.startDate, model.startDate)
+        XCTAssertEqual(decodedModel.endDate, model.endDate)
+        XCTAssertEqual(decodedModel.state, model.state)
+        XCTAssertEqual(decodedModel.contentType, model.contentType)
+    }
 }
