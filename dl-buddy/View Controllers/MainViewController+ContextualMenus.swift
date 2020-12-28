@@ -26,8 +26,8 @@ extension MainViewController: NSMenuDelegate {
     internal func setupInitialContextualMenu() {
         contextualMenu = NSMenu()
         contextualMenu?.delegate = self
-        contextualMenu?.addItem(MenuItem.remove.item)
         tableView.menu = contextualMenu
+        setMenuBarItemsEnabled([])
     }
 
     /// Update menu items both in right click menus and in the menu bar
