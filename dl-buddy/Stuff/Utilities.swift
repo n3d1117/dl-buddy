@@ -1,5 +1,5 @@
 //
-//  Extensions.swift
+//  Utilities.swift
 //  dl-buddy
 //
 //  Created by ned on 18/12/20.
