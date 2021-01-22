@@ -44,7 +44,6 @@ extension DownloadModel.State {
             self = .failed(error: value)
 
         } else {
-            print("FUCJ")
             throw DecodingError.dataCorrupted(
                 DecodingError.Context(codingPath: container.codingPath, debugDescription: "Data doesn't match")
             )

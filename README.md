@@ -15,7 +15,7 @@ A simple download manager for macOS written in Swift.
 - [x] Persistent history of all downloads
 - [x] Resume downloads even after closing the app
 
-## Interface
+## Screenshots
 Main Interface | Add new download
 :-------------------------:|:-------------------------:
 <img alt="Main Interface" src="https://user-images.githubusercontent.com/11541888/103178658-06640300-4885-11eb-99e9-2c4f77701f08.png"/> | <img alt="Adding a new download" src="https://user-images.githubusercontent.com/11541888/103178622-9eadb800-4884-11eb-83eb-146b69875f3c.png"/>

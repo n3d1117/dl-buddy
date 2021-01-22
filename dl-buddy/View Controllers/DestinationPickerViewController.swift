@@ -41,7 +41,7 @@ class DestinationPickerViewController: NSViewController {
         destinationPathControl.url = initialDestinationUrl
 
         /// Instantiate an empty model
-        urlAndDestinationModel = URLAndDestModel(url: .empty, destinationFolder: initialDestinationUrl)
+        urlAndDestinationModel = URLAndDestModel(url: .dummy, destinationFolder: initialDestinationUrl)
     }
 
     // MARK: - IBAction Methods

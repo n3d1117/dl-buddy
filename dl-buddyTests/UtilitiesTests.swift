@@ -110,7 +110,7 @@ class UtilitiesTests: XCTestCase {
     }
 
     func testDownloadModelEncoding() throws {
-        let model = DownloadModel(id: UUID(), fileUrl: .empty, destinationUrl: .empty,
+        let model = DownloadModel(id: UUID(), fileUrl: .dummy, destinationUrl: .dummy,
                                   filename: "test", startDate: Date(), endDate: Date(),
                                   state: .completed, contentType: .epub)
         let decodedModel = try encodeAndDecode(model)

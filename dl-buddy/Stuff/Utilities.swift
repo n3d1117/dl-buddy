@@ -22,8 +22,8 @@ extension String {
 
 extension URL {
 
-    /// Creates an empty URL
-    static var empty: URL {
+    /// Creates a dummy URL object
+    static var dummy: URL {
         return URL(string: "https://apple.com/")!
     }
 
@@ -39,7 +39,7 @@ extension URL {
         }
     }
 
-    /// Returns `true` if a file exists at the url
+    /// Returns `true` if a file exists at url
     var exists: Bool {
         return FileManager.default.fileExists(atPath: path)
     }
@@ -62,7 +62,7 @@ extension Progress {
         return CodableProgress(completedUnitCount: completedUnitCount, totalUnitCount: totalUnitCount)
     }
 
-    /// Returns the progress as a string, e.g.: `Downloading 1.2MB of 32.8MB (27%)`
+    /// Returns the progress as a string, e.g.: `Downloading 1.2MB of 32.8MB (2.7%)`
     var asString: String {
         let readString: String = completedUnitCount.humanReadable
         let totalString: String = totalUnitCount.humanReadable

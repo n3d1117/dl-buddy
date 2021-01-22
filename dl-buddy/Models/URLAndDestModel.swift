@@ -12,6 +12,6 @@ struct URLAndDestModel {
     /// The URL of the file to download
     var url: URL
 
-    /// The folder where to save to downloaded file
+    /// The folder where to save the downloaded file
     var destinationFolder: URL
 }
